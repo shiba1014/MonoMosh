@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD95855D1C6084700058B2FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD95855C1C6084700058B2FE /* main.m */; };
+		DD9585601C6084700058B2FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD95855F1C6084700058B2FE /* AppDelegate.m */; };
+		DD9585631C6084700058B2FE /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585621C6084700058B2FE /* FirstViewController.m */; };
+		DD9585661C6084700058B2FE /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585651C6084700058B2FE /* SecondViewController.m */; };
+		DD9585691C6084700058B2FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9585671C6084700058B2FE /* Main.storyboard */; };
+		DD95856B1C6084700058B2FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD95856A1C6084700058B2FE /* Assets.xcassets */; };
+		DD95856E1C6084700058B2FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD95856C1C6084700058B2FE /* LaunchScreen.storyboard */; };
+		DD9585791C6084700058B2FE /* MonoMoshTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585781C6084700058B2FE /* MonoMoshTests.m */; };
+		DD9585841C6084700058B2FE /* MonoMoshUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585831C6084700058B2FE /* MonoMoshUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD9585751C6084700058B2FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD9585501C6084700058B2FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD9585571C6084700058B2FE;
+			remoteInfo = MonoMosh;
+		};
+		DD9585801C6084700058B2FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD9585501C6084700058B2FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD9585571C6084700058B2FE;
+			remoteInfo = MonoMosh;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DD9585581C6084700058B2FE /* MonoMosh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonoMosh.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD95855C1C6084700058B2FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DD95855E1C6084700058B2FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DD95855F1C6084700058B2FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DD9585611C6084700058B2FE /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		DD9585621C6084700058B2FE /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		DD9585641C6084700058B2FE /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		DD9585651C6084700058B2FE /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		DD9585681C6084700058B2FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD95856A1C6084700058B2FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD95856D1C6084700058B2FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DD95856F1C6084700058B2FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD9585741C6084700058B2FE /* MonoMoshTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonoMoshTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD9585781C6084700058B2FE /* MonoMoshTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonoMoshTests.m; sourceTree = "<group>"; };
+		DD95857A1C6084700058B2FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD95857F1C6084700058B2FE /* MonoMoshUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonoMoshUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD9585831C6084700058B2FE /* MonoMoshUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonoMoshUITests.m; sourceTree = "<group>"; };
+		DD9585851C6084700058B2FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD9585551C6084700058B2FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD9585711C6084700058B2FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD95857C1C6084700058B2FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD95854F1C6084700058B2FE = {
+			isa = PBXGroup;
+			children = (
+				DD95855A1C6084700058B2FE /* MonoMosh */,
+				DD9585771C6084700058B2FE /* MonoMoshTests */,
+				DD9585821C6084700058B2FE /* MonoMoshUITests */,
+				DD9585591C6084700058B2FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD9585591C6084700058B2FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD9585581C6084700058B2FE /* MonoMosh.app */,
+				DD9585741C6084700058B2FE /* MonoMoshTests.xctest */,
+				DD95857F1C6084700058B2FE /* MonoMoshUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD95855A1C6084700058B2FE /* MonoMosh */ = {
+			isa = PBXGroup;
+			children = (
+				DD95855E1C6084700058B2FE /* AppDelegate.h */,
+				DD95855F1C6084700058B2FE /* AppDelegate.m */,
+				DD9585611C6084700058B2FE /* FirstViewController.h */,
+				DD9585621C6084700058B2FE /* FirstViewController.m */,
+				DD9585641C6084700058B2FE /* SecondViewController.h */,
+				DD9585651C6084700058B2FE /* SecondViewController.m */,
+				DD9585671C6084700058B2FE /* Main.storyboard */,
+				DD95856A1C6084700058B2FE /* Assets.xcassets */,
+				DD95856C1C6084700058B2FE /* LaunchScreen.storyboard */,
+				DD95856F1C6084700058B2FE /* Info.plist */,
+				DD95855B1C6084700058B2FE /* Supporting Files */,
+			);
+			path = MonoMosh;
+			sourceTree = "<group>";
+		};
+		DD95855B1C6084700058B2FE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DD95855C1C6084700058B2FE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DD9585771C6084700058B2FE /* MonoMoshTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD9585781C6084700058B2FE /* MonoMoshTests.m */,
+				DD95857A1C6084700058B2FE /* Info.plist */,
+			);
+			path = MonoMoshTests;
+			sourceTree = "<group>";
+		};
+		DD9585821C6084700058B2FE /* MonoMoshUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DD9585831C6084700058B2FE /* MonoMoshUITests.m */,
+				DD9585851C6084700058B2FE /* Info.plist */,
+			);
+			path = MonoMoshUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD9585571C6084700058B2FE /* MonoMosh */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD9585881C6084700058B2FE /* Build configuration list for PBXNativeTarget "MonoMosh" */;
+			buildPhases = (
+				DD9585541C6084700058B2FE /* Sources */,
+				DD9585551C6084700058B2FE /* Frameworks */,
+				DD9585561C6084700058B2FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MonoMosh;
+			productName = MonoMosh;
+			productReference = DD9585581C6084700058B2FE /* MonoMosh.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DD9585731C6084700058B2FE /* MonoMoshTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD95858B1C6084700058B2FE /* Build configuration list for PBXNativeTarget "MonoMoshTests" */;
+			buildPhases = (
+				DD9585701C6084700058B2FE /* Sources */,
+				DD9585711C6084700058B2FE /* Frameworks */,
+				DD9585721C6084700058B2FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD9585761C6084700058B2FE /* PBXTargetDependency */,
+			);
+			name = MonoMoshTests;
+			productName = MonoMoshTests;
+			productReference = DD9585741C6084700058B2FE /* MonoMoshTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD95857E1C6084700058B2FE /* MonoMoshUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD95858E1C6084700058B2FE /* Build configuration list for PBXNativeTarget "MonoMoshUITests" */;
+			buildPhases = (
+				DD95857B1C6084700058B2FE /* Sources */,
+				DD95857C1C6084700058B2FE /* Frameworks */,
+				DD95857D1C6084700058B2FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD9585811C6084700058B2FE /* PBXTargetDependency */,
+			);
+			name = MonoMoshUITests;
+			productName = MonoMoshUITests;
+			productReference = DD95857F1C6084700058B2FE /* MonoMoshUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD9585501C6084700058B2FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "嶋本夏海";
+				TargetAttributes = {
+					DD9585571C6084700058B2FE = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					DD9585731C6084700058B2FE = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = DD9585571C6084700058B2FE;
+					};
+					DD95857E1C6084700058B2FE = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = DD9585571C6084700058B2FE;
+					};
+				};
+			};
+			buildConfigurationList = DD9585531C6084700058B2FE /* Build configuration list for PBXProject "MonoMosh" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD95854F1C6084700058B2FE;
+			productRefGroup = DD9585591C6084700058B2FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD9585571C6084700058B2FE /* MonoMosh */,
+				DD9585731C6084700058B2FE /* MonoMoshTests */,
+				DD95857E1C6084700058B2FE /* MonoMoshUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD9585561C6084700058B2FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD95856E1C6084700058B2FE /* LaunchScreen.storyboard in Resources */,
+				DD95856B1C6084700058B2FE /* Assets.xcassets in Resources */,
+				DD9585691C6084700058B2FE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD9585721C6084700058B2FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD95857D1C6084700058B2FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD9585541C6084700058B2FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD9585661C6084700058B2FE /* SecondViewController.m in Sources */,
+				DD9585601C6084700058B2FE /* AppDelegate.m in Sources */,
+				DD9585631C6084700058B2FE /* FirstViewController.m in Sources */,
+				DD95855D1C6084700058B2FE /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD9585701C6084700058B2FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD9585791C6084700058B2FE /* MonoMoshTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD95857B1C6084700058B2FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD9585841C6084700058B2FE /* MonoMoshUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD9585761C6084700058B2FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD9585571C6084700058B2FE /* MonoMosh */;
+			targetProxy = DD9585751C6084700058B2FE /* PBXContainerItemProxy */;
+		};
+		DD9585811C6084700058B2FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD9585571C6084700058B2FE /* MonoMosh */;
+			targetProxy = DD9585801C6084700058B2FE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DD9585671C6084700058B2FE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD9585681C6084700058B2FE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DD95856C1C6084700058B2FE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD95856D1C6084700058B2FE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DD9585861C6084700058B2FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DD9585871C6084700058B2FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD9585891C6084700058B2FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MonoMosh/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = a.MonoMosh;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DD95858A1C6084700058B2FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MonoMosh/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = a.MonoMosh;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DD95858C1C6084700058B2FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MonoMoshTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = a.MonoMoshTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonoMosh.app/MonoMosh";
+			};
+			name = Debug;
+		};
+		DD95858D1C6084700058B2FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MonoMoshTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = a.MonoMoshTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonoMosh.app/MonoMosh";
+			};
+			name = Release;
+		};
+		DD95858F1C6084700058B2FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MonoMoshUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = a.MonoMoshUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MonoMosh;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		DD9585901C6084700058B2FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MonoMoshUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = a.MonoMoshUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MonoMosh;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD9585531C6084700058B2FE /* Build configuration list for PBXProject "MonoMosh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD9585861C6084700058B2FE /* Debug */,
+				DD9585871C6084700058B2FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD9585881C6084700058B2FE /* Build configuration list for PBXNativeTarget "MonoMosh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD9585891C6084700058B2FE /* Debug */,
+				DD95858A1C6084700058B2FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DD95858B1C6084700058B2FE /* Build configuration list for PBXNativeTarget "MonoMoshTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD95858C1C6084700058B2FE /* Debug */,
+				DD95858D1C6084700058B2FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DD95858E1C6084700058B2FE /* Build configuration list for PBXNativeTarget "MonoMoshUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD95858F1C6084700058B2FE /* Debug */,
+				DD9585901C6084700058B2FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD9585501C6084700058B2FE /* Project object */;
+}
