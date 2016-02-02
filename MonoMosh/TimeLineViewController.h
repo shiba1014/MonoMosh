@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  FirstViewController.h
 //  MonoMosh
 //
 //  Created by 嶋本夏海 on 2016/02/02.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
-
+@interface TimeLineViewController : UIViewController
 
 @end
 

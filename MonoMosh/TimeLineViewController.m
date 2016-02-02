@@ -6,17 +6,19 @@
 //  Copyright © 2016年 嶋本夏海. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "TimeLineViewController.h"
 
-@interface FirstViewController ()
+
+@interface TimeLineViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation TimeLineViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 - (void)didReceiveMemoryWarning {

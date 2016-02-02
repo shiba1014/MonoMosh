@@ -6,17 +6,18 @@
 //  Copyright © 2016年 嶋本夏海. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "MyPageViewController.h"
 
-@interface SecondViewController ()
+@interface MyPageViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation MyPageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 - (void)didReceiveMemoryWarning {

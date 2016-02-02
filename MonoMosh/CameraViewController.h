@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  CameraViewController.h
 //  MonoMosh
 //
 //  Created by 嶋本夏海 on 2016/02/02.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
-
+@interface CameraViewController : UIViewController
 
 @end
-
