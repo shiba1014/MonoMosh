@@ -17,6 +17,54 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSMutableArray *viewControllers = [NSMutableArray new];
+    
+    
+    UIStoryboard *tlStoryboard = [UIStoryboard storyboardWithName:@"TimeLine" bundle:[NSBundle mainBundle]];
+    UIViewController *tlViewController = [tlStoryboard instantiateInitialViewController];
+     [viewControllers addObject:tlViewController];
+    
+   
+    UIStoryboard *mpStoryboard = [UIStoryboard storyboardWithName:@"MyPage" bundle:[NSBundle mainBundle]];
+    UIViewController *mpViewController = [mpStoryboard instantiateInitialViewController];
+    [viewControllers addObject:mpViewController];
+    
+    
+    UIStoryboard *notifStoryboard = [UIStoryboard storyboardWithName:@"Notif" bundle:[NSBundle mainBundle]];
+    UIViewController *notifViewController = [notifStoryboard instantiateInitialViewController];
+    [viewControllers addObject:notifViewController];
+    
+    
+    UIStoryboard *cameraStoryboard = [UIStoryboard storyboardWithName:@"Notif" bundle:[NSBundle mainBundle]];
+    UIViewController *cameraViewController = [cameraStoryboard instantiateInitialViewController];
+    [viewControllers addObject:cameraViewController];
+
+
+    
+    // TabBarController の持つ ViewController の配列に代入
+    self.viewControllers = viewControllers;
+    
+/*
+    for(UITabBarItem *item in self.tabBar.items){
+        if([item.title isEqualToString:@"TimeLine"]){
+            
+            item.image = [[UIImage imageNamed:@"homeTabImage"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            item.selectedImage = [UIImage imageNamed:@"homeTabImage"];
+            
+        }else if ([item.title isEqualToString:@"Camera"]){
+            
+            item.image = [[UIImage imageNamed:@"studyTabImage"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            
+        }else if ([item.title isEqualToString:@"MyPage"]){
+            
+            item.image = [[UIImage imageNamed:@"studyTabImage"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        }else {
+            item.image = [[UIImage imageNamed:@"notifTabImage"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            item.selectedImage = [UIImage imageNamed:@"notifTabImage"];
+        }
+    }
+    */
 }
 
 - (void)didReceiveMemoryWarning {

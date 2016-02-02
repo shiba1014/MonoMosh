@@ -9,13 +9,20 @@
 /* Begin PBXBuildFile section */
 		DD95855D1C6084700058B2FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD95855C1C6084700058B2FE /* main.m */; };
 		DD9585601C6084700058B2FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD95855F1C6084700058B2FE /* AppDelegate.m */; };
-		DD9585631C6084700058B2FE /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585621C6084700058B2FE /* FirstViewController.m */; };
-		DD9585661C6084700058B2FE /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585651C6084700058B2FE /* SecondViewController.m */; };
+		DD9585631C6084700058B2FE /* TimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585621C6084700058B2FE /* TimeLineViewController.m */; };
+		DD9585661C6084700058B2FE /* MyPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585651C6084700058B2FE /* MyPageViewController.m */; };
 		DD9585691C6084700058B2FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9585671C6084700058B2FE /* Main.storyboard */; };
 		DD95856B1C6084700058B2FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD95856A1C6084700058B2FE /* Assets.xcassets */; };
 		DD95856E1C6084700058B2FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD95856C1C6084700058B2FE /* LaunchScreen.storyboard */; };
 		DD9585791C6084700058B2FE /* MonoMoshTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585781C6084700058B2FE /* MonoMoshTests.m */; };
 		DD9585841C6084700058B2FE /* MonoMoshUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585831C6084700058B2FE /* MonoMoshUITests.m */; };
+		DD9585921C60849F0058B2FE /* TimeLine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9585911C60849F0058B2FE /* TimeLine.storyboard */; };
+		DD9585941C6084AA0058B2FE /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9585931C6084AA0058B2FE /* MyPage.storyboard */; };
+		DD95859A1C608BC10058B2FE /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585991C608BC10058B2FE /* MainTabBarViewController.m */; };
+		DD9585A21C609D5E0058B2FE /* Notif.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9585A11C609D5E0058B2FE /* Notif.storyboard */; };
+		DD9585A51C609F3C0058B2FE /* NotifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585A41C609F3C0058B2FE /* NotifViewController.m */; };
+		DD9585A81C60A1EA0058B2FE /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585A71C60A1EA0058B2FE /* CameraViewController.m */; };
+		DD9585AA1C60A2BF0058B2FE /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9585A91C60A2BF0058B2FE /* Camera.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +47,10 @@
 		DD95855C1C6084700058B2FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DD95855E1C6084700058B2FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DD95855F1C6084700058B2FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DD9585611C6084700058B2FE /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		DD9585621C6084700058B2FE /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		DD9585641C6084700058B2FE /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		DD9585651C6084700058B2FE /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		DD9585611C6084700058B2FE /* TimeLineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeLineViewController.h; sourceTree = "<group>"; };
+		DD9585621C6084700058B2FE /* TimeLineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeLineViewController.m; sourceTree = "<group>"; };
+		DD9585641C6084700058B2FE /* MyPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPageViewController.h; sourceTree = "<group>"; };
+		DD9585651C6084700058B2FE /* MyPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPageViewController.m; sourceTree = "<group>"; };
 		DD9585681C6084700058B2FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD95856A1C6084700058B2FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD95856D1C6084700058B2FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +61,16 @@
 		DD95857F1C6084700058B2FE /* MonoMoshUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonoMoshUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD9585831C6084700058B2FE /* MonoMoshUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonoMoshUITests.m; sourceTree = "<group>"; };
 		DD9585851C6084700058B2FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD9585911C60849F0058B2FE /* TimeLine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimeLine.storyboard; sourceTree = "<group>"; };
+		DD9585931C6084AA0058B2FE /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		DD9585981C608BC10058B2FE /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
+		DD9585991C608BC10058B2FE /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
+		DD9585A11C609D5E0058B2FE /* Notif.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notif.storyboard; sourceTree = "<group>"; };
+		DD9585A31C609F3C0058B2FE /* NotifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifViewController.h; sourceTree = "<group>"; };
+		DD9585A41C609F3C0058B2FE /* NotifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifViewController.m; sourceTree = "<group>"; };
+		DD9585A61C60A1EA0058B2FE /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		DD9585A71C60A1EA0058B2FE /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		DD9585A91C60A2BF0058B2FE /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,11 +123,21 @@
 			children = (
 				DD95855E1C6084700058B2FE /* AppDelegate.h */,
 				DD95855F1C6084700058B2FE /* AppDelegate.m */,
-				DD9585611C6084700058B2FE /* FirstViewController.h */,
-				DD9585621C6084700058B2FE /* FirstViewController.m */,
-				DD9585641C6084700058B2FE /* SecondViewController.h */,
-				DD9585651C6084700058B2FE /* SecondViewController.m */,
+				DD9585981C608BC10058B2FE /* MainTabBarViewController.h */,
+				DD9585991C608BC10058B2FE /* MainTabBarViewController.m */,
+				DD9585611C6084700058B2FE /* TimeLineViewController.h */,
+				DD9585621C6084700058B2FE /* TimeLineViewController.m */,
+				DD9585641C6084700058B2FE /* MyPageViewController.h */,
+				DD9585651C6084700058B2FE /* MyPageViewController.m */,
+				DD9585A31C609F3C0058B2FE /* NotifViewController.h */,
+				DD9585A41C609F3C0058B2FE /* NotifViewController.m */,
+				DD9585A61C60A1EA0058B2FE /* CameraViewController.h */,
+				DD9585A71C60A1EA0058B2FE /* CameraViewController.m */,
 				DD9585671C6084700058B2FE /* Main.storyboard */,
+				DD9585911C60849F0058B2FE /* TimeLine.storyboard */,
+				DD9585931C6084AA0058B2FE /* MyPage.storyboard */,
+				DD9585A11C609D5E0058B2FE /* Notif.storyboard */,
+				DD9585A91C60A2BF0058B2FE /* Camera.storyboard */,
 				DD95856A1C6084700058B2FE /* Assets.xcassets */,
 				DD95856C1C6084700058B2FE /* LaunchScreen.storyboard */,
 				DD95856F1C6084700058B2FE /* Info.plist */,
@@ -249,8 +276,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD95856E1C6084700058B2FE /* LaunchScreen.storyboard in Resources */,
+				DD9585AA1C60A2BF0058B2FE /* Camera.storyboard in Resources */,
 				DD95856B1C6084700058B2FE /* Assets.xcassets in Resources */,
 				DD9585691C6084700058B2FE /* Main.storyboard in Resources */,
+				DD9585941C6084AA0058B2FE /* MyPage.storyboard in Resources */,
+				DD9585A21C609D5E0058B2FE /* Notif.storyboard in Resources */,
+				DD9585921C60849F0058B2FE /* TimeLine.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,9 +306,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD9585661C6084700058B2FE /* SecondViewController.m in Sources */,
+				DD9585661C6084700058B2FE /* MyPageViewController.m in Sources */,
 				DD9585601C6084700058B2FE /* AppDelegate.m in Sources */,
-				DD9585631C6084700058B2FE /* FirstViewController.m in Sources */,
+				DD9585A51C609F3C0058B2FE /* NotifViewController.m in Sources */,
+				DD95859A1C608BC10058B2FE /* MainTabBarViewController.m in Sources */,
+				DD9585631C6084700058B2FE /* TimeLineViewController.m in Sources */,
+				DD9585A81C60A1EA0058B2FE /* CameraViewController.m in Sources */,
 				DD95855D1C6084700058B2FE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
