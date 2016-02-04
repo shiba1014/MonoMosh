@@ -25,7 +25,10 @@
     UIViewController *tlViewController = [tlStoryboard instantiateInitialViewController];
      [viewControllers addObject:tlViewController];
     
-   
+    UIStoryboard *cameraStoryboard = [UIStoryboard storyboardWithName:@"Camera" bundle:[NSBundle mainBundle]];
+    UIViewController *cameraViewController = [cameraStoryboard instantiateInitialViewController];
+    [viewControllers addObject:cameraViewController];
+
     UIStoryboard *mpStoryboard = [UIStoryboard storyboardWithName:@"MyPage" bundle:[NSBundle mainBundle]];
     UIViewController *mpViewController = [mpStoryboard instantiateInitialViewController];
     [viewControllers addObject:mpViewController];
@@ -36,10 +39,7 @@
     [viewControllers addObject:notifViewController];
     
     
-    UIStoryboard *cameraStoryboard = [UIStoryboard storyboardWithName:@"Notif" bundle:[NSBundle mainBundle]];
-    UIViewController *cameraViewController = [cameraStoryboard instantiateInitialViewController];
-    [viewControllers addObject:cameraViewController];
-
+   
 
     
     // TabBarController の持つ ViewController の配列に代入

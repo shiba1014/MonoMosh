@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YCameraViewController.h"
 
-@interface CameraViewController : UIViewController
+@interface CameraViewController : UIViewController <YCameraViewControllerDelegate,UITextFieldDelegate> {
+    
+    UIImageView *imgView;
+    UITextField *nameTextField;
+    UITextField *detailTextField;
+}
 
 @end
