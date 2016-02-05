@@ -10,10 +10,11 @@
 #import "YCameraViewController.h"
 
 @interface CameraViewController : UIViewController <YCameraViewControllerDelegate,UITextFieldDelegate> {
-    
+
     UIImageView *imgView;
     UITextField *nameTextField;
     UITextField *detailTextField;
+
 }
 
 @end

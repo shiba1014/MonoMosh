@@ -98,7 +98,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) dealloc
+-(void)dealloc
 {
     [_imagePreview release];
     [_captureImage release];
@@ -298,7 +298,7 @@
 }
 
 
-//ここ！
+
 - (IBAction)snapImage:(id)sender {
     [self.photoCaptureButton setEnabled:NO];
     
@@ -418,7 +418,7 @@
     [self setCapturedImage];
 }
 
-//ここ
+
 - (void)setCapturedImage{
     // Stop capturing image
     [session stopRunning];
@@ -439,7 +439,7 @@
     if (info) {
         photoFromCam = NO;
         
-        UIImage* outputImage = [info objectForKey:UIImagePickerControllerEditedImage];
+        UIImage *outputImage = [info objectForKey:UIImagePickerControllerEditedImage];
         if (outputImage == nil) {
             outputImage = [info objectForKey:UIImagePickerControllerOriginalImage];
         }
@@ -453,6 +453,14 @@
             // Hide Top/Bottom controller after taking photo for editing
             [self hideControllers];
         }
+        
+        if ([delegate respondsToSelector:@selector(didFinishPickingImage:)]) {
+            [delegate didFinishPickingImage:self.captureImage.image];
+        }
+        
+        // Dismiss self view controller
+        [self dismissViewControllerAnimated:YES completion:nil];
+
     }
 }
 
