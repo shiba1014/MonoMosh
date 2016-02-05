@@ -7,6 +7,7 @@
 //
 
 #import "CameraViewController.h"
+#import "TimeLineViewController.h"
 
 @interface CameraViewController ()
 
@@ -82,6 +83,8 @@
     [ud setObject:data forKey:@"ud"];
     [ud synchronize];
     
+    self.tabBarController.selectedIndex = 0;
+    
     
     UIAlertController *alert=   [UIAlertController
                                   alertControllerWithTitle:@"完了"
@@ -101,8 +104,7 @@
     
     [alert addAction:okButton];
     [self presentViewController:alert animated:YES completion:nil];
-    
-    return;
+
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField*)textField{
