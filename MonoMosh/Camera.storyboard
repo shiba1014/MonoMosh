@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="0Gb-IR-5Dv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0Gb-IR-5Dv">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Camera View Controller-->
@@ -14,15 +16,63 @@
                         <viewControllerLayoutGuide type="bottom" id="5mg-wc-Jn9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jjj-1i-dy3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B2m-gY-Rxx">
+                                <rect key="frame" x="30" y="84" width="540" height="540"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="296" id="6gE-aH-XyH"/>
+                                    <constraint firstAttribute="width" secondItem="B2m-gY-Rxx" secondAttribute="height" multiplier="1:1" id="Dzg-Lt-t8f"/>
+                                    <constraint firstAttribute="width" secondItem="B2m-gY-Rxx" secondAttribute="height" multiplier="1:1" id="MQ3-PF-sfu"/>
+                                    <constraint firstAttribute="height" constant="296" id="v6u-mw-Vl8"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6gE-aH-XyH"/>
+                                        <exclude reference="Dzg-Lt-t8f"/>
+                                        <exclude reference="v6u-mw-Vl8"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0L0-Tg-9jc">
+                                <rect key="frame" x="30" y="390" width="540" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01b-dD-Awd">
+                                <rect key="frame" x="30" y="457" width="540" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Hmn-Cp-wTW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="B2m-gY-Rxx" firstAttribute="centerX" secondItem="jjj-1i-dy3" secondAttribute="centerX" id="18j-N6-ogJ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="0L0-Tg-9jc" secondAttribute="bottom" constant="180" id="8qh-ui-UBv"/>
+                            <constraint firstItem="0L0-Tg-9jc" firstAttribute="centerX" secondItem="jjj-1i-dy3" secondAttribute="centerX" id="M91-LT-ryX"/>
+                            <constraint firstItem="B2m-gY-Rxx" firstAttribute="top" secondItem="ICW-3Q-vBs" secondAttribute="bottom" constant="20" id="MeK-JX-euV"/>
+                            <constraint firstItem="B2m-gY-Rxx" firstAttribute="leading" secondItem="jjj-1i-dy3" secondAttribute="leadingMargin" constant="10" id="a5F-38-ZWe"/>
+                            <constraint firstItem="5mg-wc-Jn9" firstAttribute="top" secondItem="01b-dD-Awd" secondAttribute="bottom" constant="15" id="ckP-3n-CeW"/>
+                            <constraint firstItem="0L0-Tg-9jc" firstAttribute="leading" secondItem="jjj-1i-dy3" secondAttribute="leadingMargin" constant="10" id="htn-rt-RUC"/>
+                            <constraint firstItem="01b-dD-Awd" firstAttribute="leading" secondItem="jjj-1i-dy3" secondAttribute="leadingMargin" constant="10" id="rh0-hC-cAj"/>
+                            <constraint firstItem="01b-dD-Awd" firstAttribute="centerX" secondItem="jjj-1i-dy3" secondAttribute="centerX" id="s5J-iB-P43"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="C52-1b-g66"/>
+                    <connections>
+                        <outlet property="detailTextView" destination="01b-dD-Awd" id="WLf-e3-wYM"/>
+                        <outlet property="imgView" destination="B2m-gY-Rxx" id="ZRP-is-TTM"/>
+                        <outlet property="nameTextField" destination="0L0-Tg-9jc" id="Bjv-Dc-xN4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tiy-1E-Dg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="607" y="250"/>
+            <point key="canvasLocation" x="1138" y="264"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Us-gB-SMX">
@@ -40,7 +90,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Adc-Nm-pf0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="140.625" y="264.08450704225351"/>
         </scene>
     </scenes>
 </document>

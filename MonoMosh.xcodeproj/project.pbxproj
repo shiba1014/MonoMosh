@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C2925A43AA951B8516EA7E65 /* libPods-MonoMosh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4284A338E77D9EBCD22381 /* libPods-MonoMosh.a */; };
+		DD5617A71C64B371002880AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD5617A61C64B371002880AA /* QuartzCore.framework */; };
 		DD95855D1C6084700058B2FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD95855C1C6084700058B2FE /* main.m */; };
 		DD9585601C6084700058B2FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD95855F1C6084700058B2FE /* AppDelegate.m */; };
 		DD9585631C6084700058B2FE /* TimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585621C6084700058B2FE /* TimeLineViewController.m */; };
@@ -47,6 +48,7 @@
 		09293EF4CAAF4B15F18A07E5 /* Pods-MonoMosh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonoMosh.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonoMosh/Pods-MonoMosh.release.xcconfig"; sourceTree = "<group>"; };
 		7C6D197C68E742127C256327 /* Pods-MonoMosh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonoMosh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonoMosh/Pods-MonoMosh.debug.xcconfig"; sourceTree = "<group>"; };
 		CA4284A338E77D9EBCD22381 /* libPods-MonoMosh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MonoMosh.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD5617A61C64B371002880AA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DD9585581C6084700058B2FE /* MonoMosh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonoMosh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD95855C1C6084700058B2FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DD95855E1C6084700058B2FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD5617A71C64B371002880AA /* QuartzCore.framework in Frameworks */,
 				C2925A43AA951B8516EA7E65 /* libPods-MonoMosh.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +118,7 @@
 		86B3D5793F25217CCD5E1B38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD5617A61C64B371002880AA /* QuartzCore.framework */,
 				CA4284A338E77D9EBCD22381 /* libPods-MonoMosh.a */,
 			);
 			name = Frameworks;

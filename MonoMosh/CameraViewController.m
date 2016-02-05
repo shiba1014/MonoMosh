@@ -24,31 +24,53 @@
     [self presentViewController:camController animated:YES completion:^{
         // completion code
     }];
+    
+}
+/*
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+}
+ */
+/*
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSLog(@"ああ");
+    CGPoint scrollPoint = CGPointMake(0.0,400.0);
+    [scrollView setContentOffset:scrollPoint animated:YES];
 }
 
-
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    [scrollView setContentOffset:CGPointZero animated:YES];
+}
+*/
 -(void)didFinishPickingImage:(UIImage *)image{
-    // Use image as per your need
     
-    imgView = [[UIImageView alloc] initWithFrame:(CGRectMake(20, 80, 280, 280))];
-    imgView.image = image;
-    
-    [self.view addSubview:imgView];
-    
-    
-    
-    nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 370, self.view.frame.size.width - 20, 30)];
-    nameTextField.borderStyle = UITextBorderStyleRoundedRect;
+   // scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+   // [self.view addSubview:scrollView];
+    //[scrollView release];
+       
     nameTextField.delegate = self;
-    [self.view addSubview:nameTextField];
-    
+    imgView.image = image;
+    nameTextField.borderStyle = UITextBorderStyleRoundedRect;
+        
     [nameTextField becomeFirstResponder];
     
     
-    detailTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 410, self.view.frame.size.width - 20, 100)];
-    detailTextField.borderStyle = UITextBorderStyleRoundedRect;
-    detailTextField.delegate = self;
-    [self.view addSubview:detailTextField];
+    detailTextView.delegate = self;
+    [[detailTextView layer] setCornerRadius:10.0];
+    [detailTextView setClipsToBounds:YES];
+    
+    [[detailTextView layer] setBorderColor:[[UIColor grayColor] CGColor]];
+    [[detailTextView layer] setBorderWidth:0.5];
+    
+    [self.view addSubview:detailTextView];
     
     
     
@@ -61,6 +83,8 @@
     // ナビゲーションバーに追加する。
     self.navigationItem.rightBarButtonItem = rightButton;
     
+    //[self registerForKeyboardNotifications];
+
     
 }
 
@@ -75,7 +99,7 @@
     NSDictionary *contentsDic = [NSDictionary dictionaryWithObjectsAndKeys:
                          imgView.image,@"image",
                          nameTextField.text,@"name",
-                         detailTextField.text,@"contents",
+                         detailTextView.text,@"contents",
                          nil];
     
     [contentsMArray addObject:contentsDic];
@@ -111,6 +135,7 @@
     [textField resignFirstResponder];
     return YES;
 }
+
 
 -(void)yCameraControllerdidSkipped{
     // Called when user clicks on Skip button on YCameraViewController view

@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "YCameraViewController.h"
 
-@interface CameraViewController : UIViewController <YCameraViewControllerDelegate,UITextFieldDelegate> {
+@interface CameraViewController : UIViewController <YCameraViewControllerDelegate,UITextFieldDelegate,UITextViewDelegate> {
 
-    UIImageView *imgView;
-    UITextField *nameTextField;
-    UITextField *detailTextField;
-
+    IBOutlet UIImageView *imgView;
+    IBOutlet UITextField *nameTextField;
+    IBOutlet UITextView *detailTextView;
+    
+    IBOutlet UIScrollView *scrollView;
 }
 
 @end
