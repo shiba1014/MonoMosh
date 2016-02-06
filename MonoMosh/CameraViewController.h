@@ -15,8 +15,6 @@
     IBOutlet UIImageView *imgView;
     IBOutlet UITextField *nameTextField;
     IBOutlet UITextView *detailTextView;
-    
-    IBOutlet UIScrollView *scrollView;
 }
 
 @end

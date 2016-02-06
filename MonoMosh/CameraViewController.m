@@ -26,42 +26,13 @@
     }];
     
 }
-/*
-- (void)registerForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification object:nil];
-}
- */
-/*
-- (void)keyboardWasShown:(NSNotification*)aNotification
-{
-    NSLog(@"ああ");
-    CGPoint scrollPoint = CGPointMake(0.0,400.0);
-    [scrollView setContentOffset:scrollPoint animated:YES];
-}
 
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
-{
-    [scrollView setContentOffset:CGPointZero animated:YES];
-}
-*/
+
 -(void)didFinishPickingImage:(UIImage *)image{
     
-   // scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-   // [self.view addSubview:scrollView];
-    //[scrollView release];
-       
     nameTextField.delegate = self;
     imgView.image = image;
     nameTextField.borderStyle = UITextBorderStyleRoundedRect;
-        
-    [nameTextField becomeFirstResponder];
-    
     
     detailTextView.delegate = self;
     [[detailTextView layer] setCornerRadius:10.0];
@@ -82,10 +53,6 @@
     
     // ナビゲーションバーに追加する。
     self.navigationItem.rightBarButtonItem = rightButton;
-    
-    //[self registerForKeyboardNotifications];
-
-    
 }
 
 -(void)doneBtnPushed {
@@ -97,10 +64,10 @@
     contentsMArray = [[NSMutableArray alloc] init];
     
     NSDictionary *contentsDic = [NSDictionary dictionaryWithObjectsAndKeys:
-                         imgView.image,@"image",
-                         nameTextField.text,@"name",
-                         detailTextView.text,@"contents",
-                         nil];
+                                 imgView.image,@"image",
+                                 nameTextField.text,@"name",
+                                 detailTextView.text,@"contents",
+                                 nil];
     
     [contentsMArray addObject:contentsDic];
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:contentsMArray];
@@ -111,31 +78,115 @@
     
     
     UIAlertController *alert=   [UIAlertController
-                                  alertControllerWithTitle:@"完了"
-                                  message:@"投稿完了！"
-                                  preferredStyle:UIAlertControllerStyleAlert];
+                                 alertControllerWithTitle:@"完了"
+                                 message:@"投稿完了！"
+                                 preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *okButton = [UIAlertAction
-                                actionWithTitle:@"OK"
-                                style:UIAlertActionStyleDefault
-                                handler:^(UIAlertAction * action)
-                                {
-                                    //Handel your yes please button action here
-                                    NSLog(@"OK");
-                                    
-                                }];
+                               actionWithTitle:@"OK"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action)
+                               {
+                                   //Handel your yes please button action here
+                                   NSLog(@"OK");
+                                   
+                               }];
     
     
     [alert addAction:okButton];
     [self presentViewController:alert animated:YES completion:nil];
+    
+}
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    
+    if(!detailTextView.isFirstResponder) {
+        [UIView animateWithDuration:0.6f
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             // アニメーションをする処理
+                             self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - 200, self.view.frame.size.width, self.view.frame.size.height);
+                             
+                         }
+                         completion:^(BOOL finished){
+                             // アニメーションが終わった後実行する処理
+                             
+                         }];
+    }
+    NSLog(@"textFieldShouldBeginEditing");
+    return YES;
+    
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField*)textField{
+    
+    
+    [UIView animateWithDuration:0.6f
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         // アニメーションをする処理
+                         self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 200, self.view.frame.size.width, self.view.frame.size.height);
+                         
+                     }
+                     completion:^(BOOL finished){
+                         // アニメーションが終わった後実行する処理
+                         
+                     }];
+    
     [textField resignFirstResponder];
+    NSLog(@"textFieldShouldReturn");
     return YES;
 }
 
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    
+    if (!nameTextField.isFirstResponder) {
+        
+        [UIView animateWithDuration:0.6f
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             // アニメーションをする処理
+                             self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - 200, self.view.frame.size.width, self.view.frame.size.height);
+                             
+                         }
+                         completion:^(BOOL finished){
+                             // アニメーションが終わった後実行する処理
+                             
+                         }];
+    }
+    
+    NSLog(@"textViewShouldBeginEditing");
+    
+    return YES;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    if (nameTextField.isFirstResponder || detailTextView.isFirstResponder) {
+        
+
+    [UIView animateWithDuration:0.1f
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         // アニメーションをする処理
+                         self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 200, self.view.frame.size.width, self.view.frame.size.height);
+                         
+                     }
+                     completion:^(BOOL finished){
+                         // アニメーションが終わった後実行する処理
+                         
+                     }];
+    }
+    
+    [nameTextField resignFirstResponder];
+    [detailTextView resignFirstResponder];
+    
+    NSLog(@"touchesBegan");
+}
 
 -(void)yCameraControllerdidSkipped{
     // Called when user clicks on Skip button on YCameraViewController view
