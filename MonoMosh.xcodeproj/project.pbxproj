@@ -20,6 +20,9 @@
 		4EE96C111C67AA3F0095F5DF /* MonoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96C0D1C67AA3F0095F5DF /* MonoCollectionViewCell.xib */; };
 		4EE96C151C67AABE0095F5DF /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE96C131C67AABE0095F5DF /* DetailViewController.m */; };
 		4EE96C161C67AABE0095F5DF /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96C141C67AABE0095F5DF /* DetailViewController.xib */; };
+		4EE96C1C1C67ACCA0095F5DF /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE96C181C67ACCA0095F5DF /* FriendListViewController.m */; };
+		4EE96C1D1C67ACCA0095F5DF /* FriendPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96C191C67ACCA0095F5DF /* FriendPage.storyboard */; };
+		4EE96C1E1C67ACCA0095F5DF /* FriendPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE96C1B1C67ACCA0095F5DF /* FriendPageViewController.m */; };
 		C2925A43AA951B8516EA7E65 /* libPods-MonoMosh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4284A338E77D9EBCD22381 /* libPods-MonoMosh.a */; };
 		DD5617A71C64B371002880AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD5617A61C64B371002880AA /* QuartzCore.framework */; };
 		DD95855D1C6084700058B2FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD95855C1C6084700058B2FE /* main.m */; };
@@ -75,6 +78,11 @@
 		4EE96C121C67AABE0095F5DF /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		4EE96C131C67AABE0095F5DF /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		4EE96C141C67AABE0095F5DF /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		4EE96C171C67ACCA0095F5DF /* FriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListViewController.h; sourceTree = "<group>"; };
+		4EE96C181C67ACCA0095F5DF /* FriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListViewController.m; sourceTree = "<group>"; };
+		4EE96C191C67ACCA0095F5DF /* FriendPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FriendPage.storyboard; sourceTree = "<group>"; };
+		4EE96C1A1C67ACCA0095F5DF /* FriendPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendPageViewController.h; sourceTree = "<group>"; };
+		4EE96C1B1C67ACCA0095F5DF /* FriendPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendPageViewController.m; sourceTree = "<group>"; };
 		7C6D197C68E742127C256327 /* Pods-MonoMosh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonoMosh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonoMosh/Pods-MonoMosh.debug.xcconfig"; sourceTree = "<group>"; };
 		CA4284A338E77D9EBCD22381 /* libPods-MonoMosh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MonoMosh.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD5617A61C64B371002880AA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -147,6 +155,11 @@
 		4EE96BF71C67A9640095F5DF /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				4EE96C171C67ACCA0095F5DF /* FriendListViewController.h */,
+				4EE96C181C67ACCA0095F5DF /* FriendListViewController.m */,
+				4EE96C1A1C67ACCA0095F5DF /* FriendPageViewController.h */,
+				4EE96C1B1C67ACCA0095F5DF /* FriendPageViewController.m */,
+				4EE96C191C67ACCA0095F5DF /* FriendPage.storyboard */,
 			);
 			name = Friends;
 			sourceTree = "<group>";
@@ -380,6 +393,7 @@
 				4EE96C161C67AABE0095F5DF /* DetailViewController.xib in Resources */,
 				DD9585AA1C60A2BF0058B2FE /* Camera.storyboard in Resources */,
 				DD95856B1C6084700058B2FE /* Assets.xcassets in Resources */,
+				4EE96C1D1C67ACCA0095F5DF /* FriendPage.storyboard in Resources */,
 				4EE96C011C67A9A20095F5DF /* addFriendButton.png in Resources */,
 				4EE96C071C67A9A20095F5DF /* wantListButton.png in Resources */,
 				4EE96C0F1C67AA3F0095F5DF /* MonoCollectionReusableView.xib in Resources */,
@@ -465,10 +479,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD9585661C6084700058B2FE /* MyPageViewController.m in Sources */,
+				4EE96C1E1C67ACCA0095F5DF /* FriendPageViewController.m in Sources */,
 				DD9585601C6084700058B2FE /* AppDelegate.m in Sources */,
 				4EE96C0E1C67AA3F0095F5DF /* MonoCollectionReusableView.m in Sources */,
 				4EE96C101C67AA3F0095F5DF /* MonoCollectionViewCell.m in Sources */,
 				DD9585A51C609F3C0058B2FE /* NotifViewController.m in Sources */,
+				4EE96C1C1C67ACCA0095F5DF /* FriendListViewController.m in Sources */,
 				4EE96C151C67AABE0095F5DF /* DetailViewController.m in Sources */,
 				DD95859A1C608BC10058B2FE /* MainTabBarViewController.m in Sources */,
 				DD9585631C6084700058B2FE /* TimeLineViewController.m in Sources */,

@@ -92,19 +92,29 @@
                         <constraint firstItem="6Kt-0o-z54" firstAttribute="leading" secondItem="BB2-Up-SH5" secondAttribute="leading" constant="20" id="zKQ-9s-f73"/>
                     </constraints>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ob4-ht-6Ra">
+                    <rect key="frame" x="8" y="74" width="100" height="50"/>
+                    <connections>
+                        <action selector="moveToUserPage" destination="-1" eventType="touchUpInside" id="hnk-br-QHZ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="AcZ-3d-mQ2" firstAttribute="leading" secondItem="ydj-6I-aIy" secondAttribute="trailing" constant="8" id="2Jw-J9-Tb3"/>
+                <constraint firstItem="ob4-ht-6Ra" firstAttribute="top" secondItem="ydj-6I-aIy" secondAttribute="top" id="5gI-IG-SOQ"/>
                 <constraint firstItem="AcZ-3d-mQ2" firstAttribute="centerY" secondItem="ydj-6I-aIy" secondAttribute="centerY" id="DiN-Cg-1Uu"/>
                 <constraint firstItem="Y3R-6W-66l" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.7" id="JR5-xa-XMl"/>
+                <constraint firstItem="AcZ-3d-mQ2" firstAttribute="trailing" secondItem="ob4-ht-6Ra" secondAttribute="trailing" id="P6m-wK-Jqd"/>
                 <constraint firstAttribute="trailing" secondItem="BB2-Up-SH5" secondAttribute="trailing" id="RFu-7d-wjr"/>
                 <constraint firstItem="ZY1-N0-hvG" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.1" id="Rsr-mK-u1i"/>
                 <constraint firstItem="ydj-6I-aIy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="cM2-CE-H1N"/>
                 <constraint firstItem="ydj-6I-aIy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="eMD-Km-Gwg"/>
                 <constraint firstItem="ydj-6I-aIy" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.12" id="end-B6-gRz"/>
+                <constraint firstItem="ob4-ht-6Ra" firstAttribute="leading" secondItem="ydj-6I-aIy" secondAttribute="leading" id="qvY-hu-ZG4"/>
                 <constraint firstItem="BB2-Up-SH5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sbg-4M-a8R"/>
                 <constraint firstItem="BB2-Up-SH5" firstAttribute="top" secondItem="ydj-6I-aIy" secondAttribute="bottom" constant="8" id="tkC-dk-0E7"/>
+                <constraint firstItem="ob4-ht-6Ra" firstAttribute="bottom" secondItem="ydj-6I-aIy" secondAttribute="bottom" id="wck-cw-WiP"/>
                 <constraint firstAttribute="bottom" secondItem="BB2-Up-SH5" secondAttribute="bottom" constant="44" id="xwT-kv-jfM"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>

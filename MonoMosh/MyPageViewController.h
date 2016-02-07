@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyPageViewController : UIViewController
+@interface MyPageViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate>
 
 @end
 

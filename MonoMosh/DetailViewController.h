@@ -14,4 +14,6 @@
 @property(weak,nonatomic) IBOutlet UILabel *usernameLabel,*monoLabel,*detailLabel;
 @property(weak,nonatomic) IBOutlet UIButton *optionButton,*wantButton;
 
+-(IBAction)moveToUserPage;
+
 @end

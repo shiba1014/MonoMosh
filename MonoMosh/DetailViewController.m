@@ -7,6 +7,8 @@
 //
 
 #import "DetailViewController.h"
+#import "FriendPageViewController.h"
+#import "MyPageViewController.h"
 
 @interface DetailViewController ()
 
@@ -20,7 +22,6 @@
     
     //reference:http://blog.misubo.com/article/111015348.html
     
-    //TODO:ラベルが消えない
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
 }
@@ -30,15 +31,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(IBAction)moveToUserPage{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FriendPage" bundle:[NSBundle mainBundle]];
+    FriendPageViewController *friendPageVC = [storyboard instantiateInitialViewController];
+    [self.navigationController pushViewController:friendPageVC animated:YES];
 }
-*/
 
 @end
