@@ -1,12 +1,12 @@
 //
-//  SecondViewController.m
+//  FriendPageViewController.m
 //  MonoMosh
 //
-//  Created by 嶋本夏海 on 2016/02/02.
+//  Created by Paul McCartney on 2016/02/07.
 //  Copyright © 2016年 嶋本夏海. All rights reserved.
 //
 
-#import "MyPageViewController.h"
+#import "FriendPageViewController.h"
 #import "MonoCollectionReusableView.h"
 #import "MonoCollectionViewCell.h"
 #import "DetailViewController.h"
@@ -15,18 +15,21 @@
 static NSString *headerIdentifier = @"MonoCollectionHeader";
 static NSString *cellIdentifier = @"MonoCollectionViewCell";
 
-@interface MyPageViewController (){
+@interface FriendPageViewController (){
     UIButton *moreButton;
     UIActivityIndicatorView *indicator;
 }
 
+
 @end
 
-@implementation MyPageViewController
+@implementation FriendPageViewController
+
+//static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self loadMono];
     
@@ -47,21 +50,16 @@ static NSString *cellIdentifier = @"MonoCollectionViewCell";
 
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    //reference:http://qiita.com/nusa/items/30157bf0647495dca48c
-    //reference:http://qiita.com/kaktaam/items/6035708823f31d4530a1
-    
     UICollectionReusableView *reusableView = nil;
     
     if(kind == UICollectionElementKindSectionHeader){
         MonoCollectionReusableView *header = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier forIndexPath:indexPath];
-        header.friendButton.hidden = YES;
         [header.friendNumButton addTarget:self action:@selector(moveToFriendList) forControlEvents:UIControlEventTouchUpInside];
         return header;
     }
     if (kind == UICollectionElementKindSectionFooter){
         reusableView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"Footer" forIndexPath:indexPath];
         
-        //reference:http://stackoverflow.com/questions/27142581/outlets-cannot-be-connected-to-repeating-content-ios-5
         moreButton = (UIButton *)[reusableView viewWithTag:100];
         [moreButton addTarget:self action:@selector(loadMore) forControlEvents:UIControlEventTouchUpInside];
         
@@ -86,8 +84,7 @@ static NSString *cellIdentifier = @"MonoCollectionViewCell";
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
-                 cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+                 cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MonoCollectionViewCell *cell = (MonoCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor orangeColor];
     cell.shadowImage.hidden = YES;
@@ -99,8 +96,6 @@ static NSString *cellIdentifier = @"MonoCollectionViewCell";
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //reference:http://qiita.com/k_kuni/items/9916dab83552b77e7751
-    
     float width = (self.collectionView.frame.size.width-20)/3;
     float height = width;
     return CGSizeMake(width, height);
@@ -141,5 +136,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     FriendListViewController *friendListVC = [[FriendListViewController alloc] init];
     [self.navigationController pushViewController:friendListVC animated:YES];
 }
+
 
 @end
