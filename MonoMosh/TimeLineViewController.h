@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimeLineViewController : UIViewController
+@interface TimeLineViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate>
 
 @end
 
