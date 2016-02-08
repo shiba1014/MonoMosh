@@ -19,19 +19,31 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self openCamera];
+    
+}
+
+-(void)openCamera {
     YCameraViewController *camController = [[YCameraViewController alloc] initWithNibName:@"YCameraViewController" bundle:nil];
     camController.delegate=self;
     [self presentViewController:camController animated:YES completion:^{
         // completion code
     }];
-    
 }
 
 
+-(void)viewWillAppear:(BOOL)animated {
+    if (isPosted == NO) {
+        [self openCamera];
+    }
+    
+}
+
 -(void)didFinishPickingImage:(UIImage *)image{
     
-    nameTextField.delegate = self;
     imgView.image = image;
+    
+    nameTextField.delegate = self;
     nameTextField.borderStyle = UITextBorderStyleRoundedRect;
     
     detailTextView.delegate = self;
@@ -45,7 +57,7 @@
     
     
     
-    // initWithBarButtonSystemItemに、表示したいアイコンを指定します。
+    // initWithBarButtonSystemItemに、表示したいアイコンを指定
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
                                     initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                     target:self
@@ -53,6 +65,8 @@
     
     // ナビゲーションバーに追加する。
     self.navigationItem.rightBarButtonItem = rightButton;
+    
+    isPosted = YES;
 }
 
 -(void)doneBtnPushed {
@@ -96,6 +110,11 @@
     [alert addAction:okButton];
     [self presentViewController:alert animated:YES completion:nil];
     
+    imgView.image = nil;
+    nameTextField.text = nil;
+    detailTextView.text = nil;
+    isPosted = NO;
+    
 }
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
@@ -105,7 +124,7 @@
                               delay:0
                             options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
-                             // アニメーションをする処理
+                             // animation
                              self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - 200, self.view.frame.size.width, self.view.frame.size.height);
                              
                          }
@@ -126,7 +145,7 @@
                           delay:0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         // アニメーションをする処理
+                         // animation
                          self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 200, self.view.frame.size.width, self.view.frame.size.height);
                          
                      }
@@ -148,7 +167,7 @@
                               delay:0
                             options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
-                             // アニメーションをする処理
+                             // animation
                              self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - 200, self.view.frame.size.width, self.view.frame.size.height);
                              
                          }
@@ -172,7 +191,7 @@
                           delay:0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         // アニメーションをする処理
+                         // animation
                          self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 200, self.view.frame.size.width, self.view.frame.size.height);
                          
                      }
@@ -188,14 +207,16 @@
     NSLog(@"touchesBegan");
 }
 
+-(void)yCameraControllerDidCancel{
+    // Called when user clicks on "X" button to close YCameraViewController
+    self.tabBarController.selectedIndex = 0;
+}
+
+/*
 -(void)yCameraControllerdidSkipped{
     // Called when user clicks on Skip button on YCameraViewController view
 }
--(void)yCameraControllerDidCancel{
-    // Called when user clicks on "X" button to close YCameraViewController
-}
-
-
+ */
 
 
 - (void)didReceiveMemoryWarning {

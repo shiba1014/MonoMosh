@@ -466,6 +466,7 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     initializeCamera = YES;
+   
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -500,6 +501,7 @@
     [self presentViewController:imgPicker animated:YES completion:NULL];
 }
 
+/*
 - (IBAction)skipped:(id)sender{
     
     if ([delegate respondsToSelector:@selector(yCameraControllerdidSkipped)]) {
@@ -509,6 +511,7 @@
     // Dismiss self view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+*/
 
 - (IBAction)cancel:(id)sender {
     if ([delegate respondsToSelector:@selector(yCameraControllerDidCancel)]) {
@@ -517,6 +520,7 @@
     
     // Dismiss self view controller
     [self dismissViewControllerAnimated:YES completion:nil];
+    //self.tabBarController.selectedIndex = 0;
 }
 
 - (IBAction)donePhotoCapture:(id)sender{

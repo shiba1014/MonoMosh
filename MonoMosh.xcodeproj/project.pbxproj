@@ -41,6 +41,8 @@
 		DD9585A51C609F3C0058B2FE /* NotifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585A41C609F3C0058B2FE /* NotifViewController.m */; };
 		DD9585A81C60A1EA0058B2FE /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585A71C60A1EA0058B2FE /* CameraViewController.m */; };
 		DD9585AA1C60A2BF0058B2FE /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9585A91C60A2BF0058B2FE /* Camera.storyboard */; };
+		DDEA98201C68A98D00ADF86C /* graph_6.png in Resources */ = {isa = PBXBuildFile; fileRef = DDEA981F1C68A98D00ADF86C /* graph_6.png */; };
+		DDEA98221C68C73C00ADF86C /* profileImage.png in Resources */ = {isa = PBXBuildFile; fileRef = DDEA98211C68C73C00ADF86C /* profileImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 		DD9585A61C60A1EA0058B2FE /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		DD9585A71C60A1EA0058B2FE /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		DD9585A91C60A2BF0058B2FE /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		DDEA981F1C68A98D00ADF86C /* graph_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph_6.png; sourceTree = "<group>"; };
+		DDEA98211C68C73C00ADF86C /* profileImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +191,7 @@
 				4EE96BFE1C67A9A20095F5DF /* shadow.png */,
 				4EE96BFF1C67A9A20095F5DF /* wantButton.png */,
 				4EE96C001C67A9A20095F5DF /* wantListButton.png */,
+				DDEA98211C68C73C00ADF86C /* profileImage.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 				DD9585651C6084700058B2FE /* MyPageViewController.m */,
 				DD9585A31C609F3C0058B2FE /* NotifViewController.h */,
 				DD9585A41C609F3C0058B2FE /* NotifViewController.m */,
+				DDEA981F1C68A98D00ADF86C /* graph_6.png */,
 				DD9585671C6084700058B2FE /* Main.storyboard */,
 				DD9585911C60849F0058B2FE /* TimeLine.storyboard */,
 				DD9585A91C60A2BF0058B2FE /* Camera.storyboard */,
@@ -391,10 +397,12 @@
 				DD95856E1C6084700058B2FE /* LaunchScreen.storyboard in Resources */,
 				4EE96C031C67A9A20095F5DF /* notSettledButton.png in Resources */,
 				4EE96C161C67AABE0095F5DF /* DetailViewController.xib in Resources */,
+				DDEA98221C68C73C00ADF86C /* profileImage.png in Resources */,
 				DD9585AA1C60A2BF0058B2FE /* Camera.storyboard in Resources */,
 				DD95856B1C6084700058B2FE /* Assets.xcassets in Resources */,
 				4EE96C1D1C67ACCA0095F5DF /* FriendPage.storyboard in Resources */,
 				4EE96C011C67A9A20095F5DF /* addFriendButton.png in Resources */,
+				DDEA98201C68A98D00ADF86C /* graph_6.png in Resources */,
 				4EE96C071C67A9A20095F5DF /* wantListButton.png in Resources */,
 				4EE96C0F1C67AA3F0095F5DF /* MonoCollectionReusableView.xib in Resources */,
 				4EE96C061C67A9A20095F5DF /* wantButton.png in Resources */,

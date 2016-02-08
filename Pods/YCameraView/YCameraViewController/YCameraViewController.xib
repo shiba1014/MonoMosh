@@ -454,68 +454,27 @@
                                 <action selector="switchToLibrary:" destination="-1" eventType="touchUpInside" id="d5G-Ng-O7L"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKK-xA-mGd">
-                            <rect key="frame" x="277" y="48" width="45" height="20"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="45" id="BGY-de-b7O"/>
-                                <constraint firstAttribute="width" constant="45" id="H90-Nq-gfA"/>
-                                <constraint firstAttribute="width" secondItem="TKK-xA-mGd" secondAttribute="height" multiplier="9:4" id="f7b-iK-eGT"/>
-                                <constraint firstAttribute="width" secondItem="TKK-xA-mGd" secondAttribute="height" multiplier="9:4" id="tur-PY-4MF"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <state key="normal" title="Skip">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <state key="selected" image="flash.png"/>
-                            <state key="highlighted">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="BGY-de-b7O"/>
-                                    <exclude reference="f7b-iK-eGT"/>
-                                </mask>
-                            </variation>
-                            <variation key="heightClass=compact">
-                                <mask key="constraints">
-                                    <include reference="BGY-de-b7O"/>
-                                    <exclude reference="H90-Nq-gfA"/>
-                                    <include reference="f7b-iK-eGT"/>
-                                    <exclude reference="tur-PY-4MF"/>
-                                </mask>
-                            </variation>
-                            <connections>
-                                <action selector="skipped:" destination="-1" eventType="touchUpInside" id="RMj-cu-Lau"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="tHe-NZ-hyp" firstAttribute="leading" secondItem="K1p-ae-iZg" secondAttribute="trailing" constant="29" id="565-t6-cyP"/>
-                        <constraint firstAttribute="centerY" secondItem="TKK-xA-mGd" secondAttribute="centerY" id="7R1-MI-wWz"/>
                         <constraint firstAttribute="height" constant="116" id="HHs-M4-KcS"/>
                         <constraint firstAttribute="centerX" secondItem="tHe-NZ-hyp" secondAttribute="centerX" id="OMA-mv-pwc"/>
                         <constraint firstAttribute="centerX" secondItem="K1p-ae-iZg" secondAttribute="centerX" id="P6E-Vv-1O9"/>
                         <constraint firstAttribute="centerY" secondItem="tHe-NZ-hyp" secondAttribute="centerY" id="Vwp-dw-xtT"/>
                         <constraint firstAttribute="width" constant="116" id="f7g-xR-yGX"/>
-                        <constraint firstItem="tHe-NZ-hyp" firstAttribute="top" secondItem="TKK-xA-mGd" secondAttribute="bottom" constant="43" id="f8y-BT-q4A"/>
                         <constraint firstAttribute="centerX" secondItem="tHe-NZ-hyp" secondAttribute="centerX" id="glN-qW-ZWf"/>
                         <constraint firstItem="K1p-ae-iZg" firstAttribute="top" secondItem="tHe-NZ-hyp" secondAttribute="bottom" constant="46" id="pmZ-SP-HKP"/>
                         <constraint firstAttribute="centerY" secondItem="K1p-ae-iZg" secondAttribute="centerY" id="rpv-By-MFv"/>
-                        <constraint firstAttribute="centerX" secondItem="TKK-xA-mGd" secondAttribute="centerX" id="uwZ-rn-FNZ"/>
                         <constraint firstAttribute="centerY" secondItem="tHe-NZ-hyp" secondAttribute="centerY" id="vzE-zI-NVy"/>
-                        <constraint firstItem="TKK-xA-mGd" firstAttribute="leading" secondItem="tHe-NZ-hyp" secondAttribute="trailing" constant="39" id="yHl-iT-noL"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="f7g-xR-yGX"/>
                             <exclude reference="P6E-Vv-1O9"/>
                             <exclude reference="pmZ-SP-HKP"/>
-                            <exclude reference="f8y-BT-q4A"/>
                             <exclude reference="glN-qW-ZWf"/>
                             <exclude reference="vzE-zI-NVy"/>
-                            <exclude reference="uwZ-rn-FNZ"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=compact">
@@ -528,12 +487,8 @@
                             <exclude reference="565-t6-cyP"/>
                             <exclude reference="OMA-mv-pwc"/>
                             <exclude reference="Vwp-dw-xtT"/>
-                            <include reference="f8y-BT-q4A"/>
                             <include reference="glN-qW-ZWf"/>
                             <include reference="vzE-zI-NVy"/>
-                            <exclude reference="7R1-MI-wWz"/>
-                            <include reference="uwZ-rn-FNZ"/>
-                            <exclude reference="yHl-iT-noL"/>
                         </mask>
                     </variation>
                 </view>

@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NotifViewController : UIViewController
+@interface NotifViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
+    
+    NSMutableArray *notifArray, *imgArray, *labelArray;
+    UIImage *profileImage;
+    NSString *userName, *monoName;
+    int point;
+    
+    IBOutlet UITableView *table;
+    
+}
 
 @end

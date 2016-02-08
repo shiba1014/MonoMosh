@@ -15,6 +15,8 @@
     IBOutlet UIImageView *imgView;
     IBOutlet UITextField *nameTextField;
     IBOutlet UITextView *detailTextView;
+    
+    BOOL isPosted;
 }
 
 @end
