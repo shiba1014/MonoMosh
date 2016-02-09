@@ -24,11 +24,13 @@ static NSString *cellIdentifier = @"MonoCollectionViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.title = @"Timeline";
+
     [self loadMono];
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
+    
+    self.title = @"Timeline";
 }
 
 - (void)didReceiveMemoryWarning {

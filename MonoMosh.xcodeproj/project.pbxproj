@@ -197,9 +197,9 @@
 		4EE96C211C69F4890095F5DF /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				DD9585A91C60A2BF0058B2FE /* Camera.storyboard */,
 				DD9585A61C60A1EA0058B2FE /* CameraViewController.h */,
 				DD9585A71C60A1EA0058B2FE /* CameraViewController.m */,
+				DD9585A91C60A2BF0058B2FE /* Camera.storyboard */,
 			);
 			name = Post;
 			sourceTree = "<group>";

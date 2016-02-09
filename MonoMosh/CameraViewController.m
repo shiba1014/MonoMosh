@@ -18,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     [self openCamera];
     
 }
@@ -59,41 +58,80 @@
     
     // initWithBarButtonSystemItemに、表示したいアイコンを指定
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
-                                    initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                    initWithTitle:@"投稿"
+                                    style:UIBarButtonItemStylePlain
                                     target:self
                                     action:@selector(doneBtnPushed)];
     
     // ナビゲーションバーに追加する。
     self.navigationItem.rightBarButtonItem = rightButton;
     
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"戻る"
+                                   style:UIBarButtonItemStylePlain
+                                   target:self
+                                   action:@selector(cancelPost)];
+    
+    self.navigationItem.leftBarButtonItem = leftButton;
+    
     isPosted = YES;
+}
+
+-(void)cancelPost{
+    UIAlertController *alert=   [UIAlertController
+                                 alertControllerWithTitle:@"Warning!"
+                                 message:@"編集内容を破棄します。よろしいですか?"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okButton = [UIAlertAction
+                               actionWithTitle:@"OK"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action)
+                               {
+                                   //Handel your yes please button action here
+                                   self.tabBarController.selectedIndex = 0;
+                                   imgView.image = nil;
+                                   nameTextField.text = nil;
+                                   detailTextView.text = nil;
+                                   isPosted = NO;
+                               }];
+    UIAlertAction *cancelButton = [UIAlertAction
+                                   actionWithTitle:@"Cancel"
+                                   style:UIAlertActionStyleDestructive
+                                   handler:^(UIAlertAction * _Nonnull action) {
+                                       
+                                   }];
+    
+    [alert addAction:cancelButton];
+    [alert addAction:okButton];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 -(void)doneBtnPushed {
     
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSArray *contentsArray = [ud objectForKey:@"ud"];
-    NSMutableArray *contentsMArray = [contentsArray mutableCopy];
-    
-    contentsMArray = [[NSMutableArray alloc] init];
-    
-    NSDictionary *contentsDic = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 imgView.image,@"image",
-                                 nameTextField.text,@"name",
-                                 detailTextView.text,@"contents",
-                                 nil];
-    
-    [contentsMArray addObject:contentsDic];
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:contentsMArray];
-    [ud setObject:data forKey:@"ud"];
-    [ud synchronize];
+//    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+//    NSArray *contentsArray = [ud objectForKey:@"ud"];
+//    NSMutableArray *contentsMArray = [contentsArray mutableCopy];
+//    
+//    contentsMArray = [[NSMutableArray alloc] init];
+//    
+//    NSDictionary *contentsDic = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                 imgView.image,@"image",
+//                                 nameTextField.text,@"name",
+//                                 detailTextView.text,@"contents",
+//                                 nil];
+//    
+//    [contentsMArray addObject:contentsDic];
+//    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:contentsMArray];
+//    [ud setObject:data forKey:@"ud"];
+//    [ud synchronize];
     
     self.tabBarController.selectedIndex = 0;
     
     
     UIAlertController *alert=   [UIAlertController
-                                 alertControllerWithTitle:@"完了"
-                                 message:@"投稿完了！"
+                                 alertControllerWithTitle:@"Completed!"
+                                 message:@"投稿しました"
                                  preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *okButton = [UIAlertAction

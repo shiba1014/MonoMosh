@@ -84,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="1138" y="264"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Camera-->
         <scene sceneID="3Us-gB-SMX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Gb-IR-5Dv" sceneMemberID="viewController">
+                <navigationController title="Camera" automaticallyAdjustsScrollViewInsets="NO" id="0Gb-IR-5Dv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xM0-Lu-Go5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -100,7 +100,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Adc-Nm-pf0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140.625" y="264.08450704225351"/>
+            <point key="canvasLocation" x="477" y="264"/>
         </scene>
     </scenes>
 </document>

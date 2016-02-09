@@ -36,7 +36,8 @@
                          nil];
 
     [notifArray addObject:notifDic];
-    
+ 
+    self.title = @"Notif";
 }
 
 - (void)didReceiveMemoryWarning {

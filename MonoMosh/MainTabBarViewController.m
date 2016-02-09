@@ -7,6 +7,7 @@
 //
 
 #import "MainTabBarViewController.h"
+#import "CameraViewController.h"
 
 @interface MainTabBarViewController ()
 
@@ -17,9 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.delegate = self;
     
     NSMutableArray *viewControllers = [NSMutableArray new];
-    
     
     UIStoryboard *tlStoryboard = [UIStoryboard storyboardWithName:@"TimeLine" bundle:[NSBundle mainBundle]];
     UIViewController *tlViewController = [tlStoryboard instantiateInitialViewController];
@@ -37,10 +38,6 @@
     UIStoryboard *notifStoryboard = [UIStoryboard storyboardWithName:@"Notif" bundle:[NSBundle mainBundle]];
     UIViewController *notifViewController = [notifStoryboard instantiateInitialViewController];
     [viewControllers addObject:notifViewController];
-    
-    
-   
-
     
     // TabBarController の持つ ViewController の配列に代入
     self.viewControllers = viewControllers;
@@ -81,5 +78,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

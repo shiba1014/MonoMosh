@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="sIT-U6-W5L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="sIT-U6-W5L">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Timeline-->
         <scene sceneID="C3d-9c-kIX">
             <objects>
-                <navigationController storyboardIdentifier="toTimeLineVC" automaticallyAdjustsScrollViewInsets="NO" id="sIT-U6-W5L" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="5mn-PU-0nF"/>
+                <navigationController storyboardIdentifier="toTimeLineVC" title="Timeline" automaticallyAdjustsScrollViewInsets="NO" id="sIT-U6-W5L" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q4j-g6-ewD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -81,7 +80,4 @@
             <point key="canvasLocation" x="776" y="-287"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="first" width="30" height="30"/>
-    </resources>
 </document>
