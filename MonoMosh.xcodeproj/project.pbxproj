@@ -41,7 +41,6 @@
 		DD9585A51C609F3C0058B2FE /* NotifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585A41C609F3C0058B2FE /* NotifViewController.m */; };
 		DD9585A81C60A1EA0058B2FE /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9585A71C60A1EA0058B2FE /* CameraViewController.m */; };
 		DD9585AA1C60A2BF0058B2FE /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9585A91C60A2BF0058B2FE /* Camera.storyboard */; };
-		DDEA98201C68A98D00ADF86C /* graph_6.png in Resources */ = {isa = PBXBuildFile; fileRef = DDEA981F1C68A98D00ADF86C /* graph_6.png */; };
 		DDEA98221C68C73C00ADF86C /* profileImage.png in Resources */ = {isa = PBXBuildFile; fileRef = DDEA98211C68C73C00ADF86C /* profileImage.png */; };
 /* End PBXBuildFile section */
 
@@ -116,7 +115,6 @@
 		DD9585A61C60A1EA0058B2FE /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		DD9585A71C60A1EA0058B2FE /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		DD9585A91C60A2BF0058B2FE /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
-		DDEA981F1C68A98D00ADF86C /* graph_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph_6.png; sourceTree = "<group>"; };
 		DDEA98211C68C73C00ADF86C /* profileImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +194,45 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		4EE96C211C69F4890095F5DF /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				DD9585A91C60A2BF0058B2FE /* Camera.storyboard */,
+				DD9585A61C60A1EA0058B2FE /* CameraViewController.h */,
+				DD9585A71C60A1EA0058B2FE /* CameraViewController.m */,
+			);
+			name = Post;
+			sourceTree = "<group>";
+		};
+		4EE96C221C69F4920095F5DF /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				DD9585611C6084700058B2FE /* TimeLineViewController.h */,
+				DD9585621C6084700058B2FE /* TimeLineViewController.m */,
+				DD9585911C60849F0058B2FE /* TimeLine.storyboard */,
+				DD9585641C6084700058B2FE /* MyPageViewController.h */,
+				DD9585651C6084700058B2FE /* MyPageViewController.m */,
+				DD9585931C6084AA0058B2FE /* MyPage.storyboard */,
+				4EE96C121C67AABE0095F5DF /* DetailViewController.h */,
+				4EE96C131C67AABE0095F5DF /* DetailViewController.m */,
+				4EE96C141C67AABE0095F5DF /* DetailViewController.xib */,
+				4EE96BF71C67A9640095F5DF /* Friends */,
+			);
+			name = Timeline;
+			sourceTree = "<group>";
+		};
+		4EE96C231C69F4CC0095F5DF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4EE96C221C69F4920095F5DF /* Timeline */,
+				4EE96C211C69F4890095F5DF /* Post */,
+				DD9585A31C609F3C0058B2FE /* NotifViewController.h */,
+				DD9585A41C609F3C0058B2FE /* NotifViewController.m */,
+				DD9585A11C609D5E0058B2FE /* Notif.storyboard */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		86B3D5793F25217CCD5E1B38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,30 +267,14 @@
 		DD95855A1C6084700058B2FE /* MonoMosh */ = {
 			isa = PBXGroup;
 			children = (
-				4EE96BF71C67A9640095F5DF /* Friends */,
-				4EE96BF91C67A9810095F5DF /* Resources */,
+				4EE96C231C69F4CC0095F5DF /* Controller */,
 				4EE96BF81C67A9740095F5DF /* View */,
+				4EE96BF91C67A9810095F5DF /* Resources */,
 				DD95855E1C6084700058B2FE /* AppDelegate.h */,
 				DD95855F1C6084700058B2FE /* AppDelegate.m */,
 				DD9585981C608BC10058B2FE /* MainTabBarViewController.h */,
 				DD9585991C608BC10058B2FE /* MainTabBarViewController.m */,
-				DD9585611C6084700058B2FE /* TimeLineViewController.h */,
-				DD9585621C6084700058B2FE /* TimeLineViewController.m */,
-				DD9585A61C60A1EA0058B2FE /* CameraViewController.h */,
-				DD9585A71C60A1EA0058B2FE /* CameraViewController.m */,
-				DD9585641C6084700058B2FE /* MyPageViewController.h */,
-				DD9585651C6084700058B2FE /* MyPageViewController.m */,
-				DD9585A31C609F3C0058B2FE /* NotifViewController.h */,
-				DD9585A41C609F3C0058B2FE /* NotifViewController.m */,
-				DDEA981F1C68A98D00ADF86C /* graph_6.png */,
 				DD9585671C6084700058B2FE /* Main.storyboard */,
-				DD9585911C60849F0058B2FE /* TimeLine.storyboard */,
-				DD9585A91C60A2BF0058B2FE /* Camera.storyboard */,
-				DD9585931C6084AA0058B2FE /* MyPage.storyboard */,
-				DD9585A11C609D5E0058B2FE /* Notif.storyboard */,
-				4EE96C121C67AABE0095F5DF /* DetailViewController.h */,
-				4EE96C131C67AABE0095F5DF /* DetailViewController.m */,
-				4EE96C141C67AABE0095F5DF /* DetailViewController.xib */,
 				DD95856A1C6084700058B2FE /* Assets.xcassets */,
 				DD95856C1C6084700058B2FE /* LaunchScreen.storyboard */,
 				DD95856F1C6084700058B2FE /* Info.plist */,
@@ -402,7 +423,6 @@
 				DD95856B1C6084700058B2FE /* Assets.xcassets in Resources */,
 				4EE96C1D1C67ACCA0095F5DF /* FriendPage.storyboard in Resources */,
 				4EE96C011C67A9A20095F5DF /* addFriendButton.png in Resources */,
-				DDEA98201C68A98D00ADF86C /* graph_6.png in Resources */,
 				4EE96C071C67A9A20095F5DF /* wantListButton.png in Resources */,
 				4EE96C0F1C67AA3F0095F5DF /* MonoCollectionReusableView.xib in Resources */,
 				4EE96C061C67A9A20095F5DF /* wantButton.png in Resources */,
