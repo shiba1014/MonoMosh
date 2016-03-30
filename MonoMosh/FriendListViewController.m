@@ -46,15 +46,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    cell.separatorInset = UIEdgeInsetsZero;
-    if ([cell respondsToSelector:@selector(layoutMargins)]) {
-        cell.layoutMargins = UIEdgeInsetsZero;
-    }
-    
-    cell.imageView.layer.cornerRadius = 25;
-    cell.imageView.clipsToBounds = YES;
-    cell.imageView.backgroundColor = [UIColor orangeColor];;
-    
+    cell.imageView.image = [UIImage imageNamed:@"profileImage.png"];
     cell.textLabel.text = @"username";
     
     return cell;
@@ -67,5 +59,9 @@
     FriendPageViewController *friendPageVC = [storyboard instantiateInitialViewController];
     [self.navigationController pushViewController:friendPageVC animated:YES];
 }
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return 100;
+//}
 
 @end

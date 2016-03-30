@@ -7,33 +7,42 @@
 //
 
 #import "MyPageViewController.h"
-#import "MonoCollectionReusableView.h"
-#import "MonoCollectionViewCell.h"
+#import "MMCollectionReusableView.h"
+#import "MMCollectionViewCell.h"
 #import "DetailViewController.h"
 #import "FriendListViewController.h"
+#import "MBProgressHUD.h"
+#import <Parse/Parse.h>
 
-static NSString *headerIdentifier = @"MonoCollectionHeader";
-static NSString *cellIdentifier = @"MonoCollectionViewCell";
+static NSString *headerIdentifier = @"MMCollectionHeader";
+static NSString *cellIdentifier = @"MMCollectionViewCell";
 
-@interface MyPageViewController (){
-    UIButton *moreButton;
-    UIActivityIndicatorView *indicator;
-}
+@interface MyPageViewController ()
 
 @end
 
 @implementation MyPageViewController
 
+@synthesize profileImage,username;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.collectionView.backgroundColor = [UIColor whiteColor];
-    [self loadMono];
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"MMCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"MMCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:cellIdentifier];
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
     
     self.title = @"Mypage";
+    
+    monoArray = [[NSMutableArray alloc] init];
+    
+    [self loadMono];
+    if(!profileImage)
+        [self getUser];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,10 +51,86 @@ static NSString *cellIdentifier = @"MonoCollectionViewCell";
 }
 
 -(void)loadMono{
-    [self.collectionView registerNib:[UINib nibWithNibName:@"MonoCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"MonoCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:cellIdentifier];
-    //    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer"];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    PFQuery *query = [PFQuery queryWithClassName:@"PostObject"];
+    query.limit = 10;
+    [query whereKey:@"postUser" equalTo:[PFUser currentUser]];
+    [query orderByDescending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if(!error){
+            for(PFObject *object in objects){
+                NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                dic[@"postName"] = object[@"postName"];
+                dic[@"postDiscription"] = object[@"postDiscription"];
+                PFUser *postUser = object[@"postUser"];
+                dic[@"postUserId"] = postUser.objectId;
+                dic[@"postId"] = object.objectId;
+                dic[@"postDiscription"] = object[@"postDiscription"];
+                [monoArray addObject:dic];
+                PFFile *imageFile = object[@"postPhoto"];
+                [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                    if(!error){
+                        UIImage *postPhoto = [UIImage imageWithData:data];
+                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"postId == %@",object.objectId];
+                        NSMutableDictionary *dic = [[[monoArray filteredArrayUsingPredicate:predicate] firstObject] mutableCopy];
+                        NSUInteger index = [monoArray indexOfObject:dic];
+                        dic[@"postPhoto"] = postPhoto;
+                        monoArray[index] = dic;
+                        [self.collectionView reloadData];
+                    }
+                }];
+                [self.collectionView reloadData];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            }
+        }else{
+            NSLog(@"Errpr:%@",error);
+        }
+    }];
 }
+
+-(void)loadOldMono{
+    PFQuery *query = [PFQuery queryWithClassName:@"PostObject"];
+    query.limit = 10;
+    query.skip = monoArray.count;
+    [query orderByDescending:@"createdAt"];
+    [query whereKey:@"postUser" equalTo:[PFUser currentUser]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        indicator.hidden = YES;
+        if(!error){
+            if(objects.count == 0){
+                moreButton.hidden = YES;
+                return;
+            }
+            for(PFObject *object in objects){
+                NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                dic[@"postName"] = object[@"postName"];
+                dic[@"postDiscription"] = object[@"postDiscription"];
+                PFUser *postUser = object[@"postUser"];
+                dic[@"postUserId"] = postUser.objectId;
+                dic[@"postId"] = object.objectId;
+                dic[@"postDiscription"] = object[@"postDiscription"];
+                [monoArray addObject:dic];
+                PFFile *imageFile = object[@"postPhoto"];
+                [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                    if(!error){
+                        UIImage *postPhoto = [UIImage imageWithData:data];
+                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"postId == %@",object.objectId];
+                        NSMutableDictionary *dic = [[[monoArray filteredArrayUsingPredicate:predicate] firstObject] mutableCopy];
+                        NSUInteger index = [monoArray indexOfObject:dic];
+                        dic[@"postPhoto"] = postPhoto;
+                        monoArray[index] = dic;
+                        [self.collectionView reloadData];
+                    }
+                }];
+            }
+            [self.collectionView reloadData];
+        }else{
+            NSLog(@"Errpr:%@",error);
+        }
+        moreButton.hidden = NO;
+    }];
+}
+
 
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
@@ -55,9 +140,13 @@ static NSString *cellIdentifier = @"MonoCollectionViewCell";
     UICollectionReusableView *reusableView = nil;
     
     if(kind == UICollectionElementKindSectionHeader){
-        MonoCollectionReusableView *header = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier forIndexPath:indexPath];
+        //TODO:profileImageがnilになる
+        MMCollectionReusableView *header = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier forIndexPath:indexPath];
+        header.username = username;
+        header.profileImage = profileImage;
         header.friendButton.hidden = YES;
         [header.friendNumButton addTarget:self action:@selector(moveToFriendList) forControlEvents:UIControlEventTouchUpInside];
+        [header setHeader];
         return header;
     }
     if (kind == UICollectionElementKindSectionFooter){
@@ -84,16 +173,24 @@ static NSString *cellIdentifier = @"MonoCollectionViewCell";
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 17;
+    if(monoArray.count == 0){
+        return 10;
+    }
+    return monoArray.count;
+
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    MonoCollectionViewCell *cell = (MonoCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor orangeColor];
+    MMCollectionViewCell *cell = (MMCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor lightGrayColor];
     cell.shadowImage.hidden = YES;
     cell.monoName.hidden = YES;
+    if(monoArray.count == 0)
+        return cell;
+    NSDictionary *dic = monoArray[indexPath.row];
+    cell.imageView.image = dic[@"postPhoto"];
     return cell;
 }
 
@@ -130,6 +227,14 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DetailViewController *detailVC = [[DetailViewController alloc] init];
+    NSDictionary *dic = monoArray[indexPath.row];
+    detailVC.postPhoto = dic[@"postPhoto"];
+    detailVC.postName = dic[@"postName"];
+    detailVC.postDiscription = dic[@"postDiscription"];
+    detailVC.postId = dic[@"postId"];
+    detailVC.postUserId = dic[@"postUserId"];
+    detailVC.postUsername = username;
+    detailVC.profileImage = profileImage;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
@@ -137,11 +242,28 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     moreButton.hidden = YES;
     indicator.hidden = NO;
     [indicator startAnimating];
+    [self loadOldMono];
 }
 
 -(void)moveToFriendList{
     FriendListViewController *friendListVC = [[FriendListViewController alloc] init];
     [self.navigationController pushViewController:friendListVC animated:YES];
 }
+
+-(void)getUser{
+    PFObject *object = (PFObject *)[PFUser currentUser];
+    username = object[@"usernameForUser"];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    PFFile *imageFile = object[@"profileImageFile"];
+    [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error){
+        if(!error){
+            profileImage = [UIImage imageWithData:data];
+            [self.collectionView reloadData];
+        }else{
+            NSLog(@"Error:%@",error);
+        }
+    }];
+}
+
 
 @end

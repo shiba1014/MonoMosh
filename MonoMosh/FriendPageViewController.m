@@ -7,23 +7,23 @@
 //
 
 #import "FriendPageViewController.h"
-#import "MonoCollectionReusableView.h"
-#import "MonoCollectionViewCell.h"
+#import "MMCollectionReusableView.h"
+#import "MMCollectionViewCell.h"
 #import "DetailViewController.h"
 #import "FriendListViewController.h"
+#import "MBProgressHUD.h"
 
-static NSString *headerIdentifier = @"MonoCollectionHeader";
-static NSString *cellIdentifier = @"MonoCollectionViewCell";
+static NSString *headerIdentifier = @"MMCollectionHeader";
+static NSString *cellIdentifier = @"MMCollectionViewCell";
 
-@interface FriendPageViewController (){
-    UIButton *moreButton;
-    UIActivityIndicatorView *indicator;
-}
+@interface FriendPageViewController ()
 
 
 @end
 
 @implementation FriendPageViewController
+
+@synthesize profileImage,username,friendUserId,friendUsername,friendUser;
 
 //static NSString * const reuseIdentifier = @"Cell";
 
@@ -31,10 +31,20 @@ static NSString *cellIdentifier = @"MonoCollectionViewCell";
     [super viewDidLoad];
     
     self.collectionView.backgroundColor = [UIColor whiteColor];
-    [self loadMono];
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"MMCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"MMCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:cellIdentifier];
+
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
+    
+    [self loadMono];
+    
+    if(!friendUser)
+        [self getUser];
+    else
+        self.title = username;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,18 +53,97 @@ static NSString *cellIdentifier = @"MonoCollectionViewCell";
 }
 
 -(void)loadMono{
-    [self.collectionView registerNib:[UINib nibWithNibName:@"MonoCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"MonoCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:cellIdentifier];
-    //    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer"];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    PFQuery *query = [PFQuery queryWithClassName:@"PostObject"];
+    query.limit = 10;
+    [query whereKey:@"postUser" equalTo:friendUser];
+    [query orderByDescending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if(!error){
+            for(PFObject *object in objects){
+                NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                dic[@"postName"] = object[@"postName"];
+                dic[@"postDiscription"] = object[@"postDiscription"];
+                PFUser *postUser = object[@"postUser"];
+                dic[@"postUserId"] = postUser.objectId;
+                dic[@"postId"] = object.objectId;
+                dic[@"postDiscription"] = object[@"postDiscription"];
+                [monoArray addObject:dic];
+                PFFile *imageFile = object[@"postPhoto"];
+                [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                    if(!error){
+                        UIImage *postPhoto = [UIImage imageWithData:data];
+                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"postId == %@",object.objectId];
+                        NSMutableDictionary *dic = [[[monoArray filteredArrayUsingPredicate:predicate] firstObject] mutableCopy];
+                        NSUInteger index = [monoArray indexOfObject:dic];
+                        dic[@"postPhoto"] = postPhoto;
+                        monoArray[index] = dic;
+                        [self.collectionView reloadData];
+                    }
+                }];
+                [self.collectionView reloadData];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            }
+        }else{
+            NSLog(@"Error:%@",error);
+        }
+    }];
 }
+
+-(void)loadOldMono{
+    PFQuery *query = [PFQuery queryWithClassName:@"PostObject"];
+    query.limit = 10;
+    query.skip = monoArray.count;
+    [query orderByDescending:@"createdAt"];
+    [query whereKey:@"postUser" equalTo:friendUser];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        indicator.hidden = YES;
+        if(!error){
+            if(objects.count == 0){
+                moreButton.hidden = YES;
+                return;
+            }
+            for(PFObject *object in objects){
+                NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                dic[@"postName"] = object[@"postName"];
+                dic[@"postDiscription"] = object[@"postDiscription"];
+                PFUser *postUser = object[@"postUser"];
+                dic[@"postUserId"] = postUser.objectId;
+                dic[@"postId"] = object.objectId;
+                dic[@"postDiscription"] = object[@"postDiscription"];
+                [monoArray addObject:dic];
+                PFFile *imageFile = object[@"postPhoto"];
+                [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                    if(!error){
+                        UIImage *postPhoto = [UIImage imageWithData:data];
+                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"postId == %@",object.objectId];
+                        NSMutableDictionary *dic = [[[monoArray filteredArrayUsingPredicate:predicate] firstObject] mutableCopy];
+                        NSUInteger index = [monoArray indexOfObject:dic];
+                        dic[@"postPhoto"] = postPhoto;
+                        monoArray[index] = dic;
+                        [self.collectionView reloadData];
+                    }
+                }];
+            }
+            [self.collectionView reloadData];
+        }else{
+            NSLog(@"Errpr:%@",error);
+        }
+        moreButton.hidden = NO;
+    }];
+}
+
 
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionReusableView *reusableView = nil;
     
     if(kind == UICollectionElementKindSectionHeader){
-        MonoCollectionReusableView *header = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier forIndexPath:indexPath];
+        MMCollectionReusableView *header = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier forIndexPath:indexPath];
         [header.friendNumButton addTarget:self action:@selector(moveToFriendList) forControlEvents:UIControlEventTouchUpInside];
+        header.profileImage = profileImage;
+        header.username = username;
+        [header setHeader];
         return header;
     }
     if (kind == UICollectionElementKindSectionFooter){
@@ -85,7 +174,7 @@ static NSString *cellIdentifier = @"MonoCollectionViewCell";
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    MonoCollectionViewCell *cell = (MonoCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    MMCollectionViewCell *cell = (MMCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor orangeColor];
     cell.shadowImage.hidden = YES;
     cell.monoName.hidden = YES;
@@ -123,18 +212,50 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DetailViewController *detailVC = [[DetailViewController alloc] init];
+    NSDictionary *dic = monoArray[indexPath.row];
+    detailVC.postPhoto = dic[@"postPhoto"];
+    detailVC.postName = dic[@"postName"];
+    detailVC.postDiscription = dic[@"postDiscription"];
+    detailVC.postId = dic[@"postId"];
+    detailVC.postUserId = dic[@"postUserId"];
+    detailVC.postUsername = username;
+    detailVC.profileImage = profileImage;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
-
 -(void)loadMore{
     moreButton.hidden = YES;
     indicator.hidden = NO;
     [indicator startAnimating];
+    [self loadOldMono];
 }
 
 -(void)moveToFriendList{
     FriendListViewController *friendListVC = [[FriendListViewController alloc] init];
     [self.navigationController pushViewController:friendListVC animated:YES];
+}
+
+-(void)getUserData{
+    
+}
+
+-(void)getUser{
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"objectId" equalTo:friendUserId];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        friendUser = (PFUser *)object;
+        username = object[@"usernameForUser"];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        PFFile *imageFile = object[@"profileImageFile"];
+        [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error){
+            if(!error){
+                profileImage = [UIImage imageWithData:data];
+                [self.collectionView reloadData];
+            }else{
+                NSLog(@"Error:%@",error);
+            }
+        }];
+        [self.collectionView reloadData];
+    }];
 }
 
 

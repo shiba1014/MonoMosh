@@ -9,14 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "YCameraViewController.h"
+#import "MBProgressHUD.h"
 
-@interface CameraViewController : UIViewController <YCameraViewControllerDelegate,UITextFieldDelegate,UITextViewDelegate> {
+@interface CameraViewController : UIViewController <YCameraViewControllerDelegate,UITextFieldDelegate,UITextViewDelegate,MBProgressHUDDelegate> {
 
     IBOutlet UIImageView *imgView;
     IBOutlet UITextField *nameTextField;
     IBOutlet UITextView *detailTextView;
     
     BOOL isPosted;
+    
+    MBProgressHUD *hud;
 }
 
 @end

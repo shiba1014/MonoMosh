@@ -8,9 +8,9 @@
 
 #import "CameraViewController.h"
 #import "TimeLineViewController.h"
+#import <Parse/Parse.h>
 
 @interface CameraViewController ()
-
 @end
 
 @implementation CameraViewController
@@ -20,6 +20,10 @@
     // Do any additional setup after loading the view.
     [self openCamera];
     
+    hud = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:hud];
+    hud.delegate = self;
+    hud.mode = MBProgressHUDModeIndeterminate;
 }
 
 -(void)openCamera {
@@ -108,51 +112,72 @@
 }
 
 -(void)doneBtnPushed {
+    if(detailTextView.isFirstResponder || nameTextField.isFirstResponder){
+        [UIView animateWithDuration:0.6f
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             // animation
+                             self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 200, self.view.frame.size.width, self.view.frame.size.height);
+                             
+                         }
+                         completion:^(BOOL finished){
+                             // アニメーションが終わった後実行する処理
+                             
+                         }];
+        
+        [detailTextView resignFirstResponder];
+        [nameTextField resignFirstResponder];
+    }
     
-//    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-//    NSArray *contentsArray = [ud objectForKey:@"ud"];
-//    NSMutableArray *contentsMArray = [contentsArray mutableCopy];
-//    
-//    contentsMArray = [[NSMutableArray alloc] init];
-//    
-//    NSDictionary *contentsDic = [NSDictionary dictionaryWithObjectsAndKeys:
-//                                 imgView.image,@"image",
-//                                 nameTextField.text,@"name",
-//                                 detailTextView.text,@"contents",
-//                                 nil];
-//    
-//    [contentsMArray addObject:contentsDic];
-//    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:contentsMArray];
-//    [ud setObject:data forKey:@"ud"];
-//    [ud synchronize];
+//    [hud showWhileExecuting:@selector(saveToParse) onTarget:self withObject:nil animated:YES];
+    [self saveToParse];
+}
+
+-(void)saveToParse{
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     
-    self.tabBarController.selectedIndex = 0;
-    
-    
-    UIAlertController *alert=   [UIAlertController
-                                 alertControllerWithTitle:@"Completed!"
-                                 message:@"投稿しました"
-                                 preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *okButton = [UIAlertAction
-                               actionWithTitle:@"OK"
-                               style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction * action)
-                               {
-                                   //Handel your yes please button action here
-                                   NSLog(@"OK");
-                                   
-                               }];
-    
-    
-    [alert addAction:okButton];
-    [self presentViewController:alert animated:YES completion:nil];
-    
-    imgView.image = nil;
-    nameTextField.text = nil;
-    detailTextView.text = nil;
-    isPosted = NO;
-    
+    PFObject *object = [PFObject objectWithClassName:@"PostObject"];
+    object[@"postName"] = nameTextField.text;
+    object[@"postDiscription"] = detailTextView.text;
+    object[@"postUser"] = [PFUser currentUser];
+    NSData *imageData = UIImagePNGRepresentation(imgView.image);
+    PFFile *imageFile = [PFFile fileWithName:@"monoPhoto" data:imageData];
+    object[@"postPhoto"] = imageFile;
+    [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(succeeded){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+            });
+            self.tabBarController.selectedIndex = 0;
+            
+            UIAlertController *alert=   [UIAlertController
+                                         alertControllerWithTitle:@"Completed!"
+                                         message:@"投稿しました"
+                                         preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *okButton = [UIAlertAction
+                                       actionWithTitle:@"OK"
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action)
+                                       {
+                                           //Handel your yes please button action here
+                                           NSLog(@"OK");
+                                           
+                                       }];
+            
+            
+            [alert addAction:okButton];
+            [self presentViewController:alert animated:YES completion:nil];
+            
+            imgView.image = nil;
+            nameTextField.text = nil;
+            detailTextView.text = nil;
+            isPosted = NO;
+        }else{
+            NSLog(@"Error:%@",error);
+        }
+    }];
 }
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {

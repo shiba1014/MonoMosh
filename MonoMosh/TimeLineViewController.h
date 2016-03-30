@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimeLineViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface TimeLineViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
+    NSMutableArray *monoArray;
+}
 
 @end
 

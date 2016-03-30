@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface DetailViewController : UIViewController<UITextViewDelegate>
+@interface DetailViewController : UIViewController<UITextViewDelegate>{
+    IBOutlet UIImageView *profileImageView,*monoImageView;
+    IBOutlet UILabel *usernameLabel,*monoLabel,*detailLabel;
+    IBOutlet UIButton *optionButton,*wantButton;
+}
 
-@property(weak,nonatomic) IBOutlet UIImageView *profileImageView,*monoImageView;
-@property(weak,nonatomic) IBOutlet UILabel *usernameLabel,*monoLabel,*detailLabel;
-@property(weak,nonatomic) IBOutlet UIButton *optionButton,*wantButton;
+@property(strong,nonatomic) NSString *postUserId,*postId,*postUsername,*postName,*postDiscription;
+@property(strong,nonatomic) UIImage *postPhoto,*profileImage;
 
 -(IBAction)moveToUserPage;
 

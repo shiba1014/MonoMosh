@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface FriendPageViewController : UICollectionViewController
+@interface FriendPageViewController : UICollectionViewController{
+    NSMutableArray *monoArray;
+    UIButton *moreButton;
+    UIActivityIndicatorView *indicator;
+}
+
+@property(strong,nonatomic) UIImage *profileImage;
+@property(strong,nonatomic) NSString *username,*friendUserId,*friendUsername;
+@property(strong,nonatomic) PFUser *friendUser;
 
 @end

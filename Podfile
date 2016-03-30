@@ -6,6 +6,10 @@
 target 'MonoMosh' do
 
 pod 'YCameraView', '~> 1.1.0'
+pod 'Parse'
+pod 'ParseTwitterUtils'
+pod 'ParseFacebookUtils'
+pod 'MBProgressHUD'
 
 end
 

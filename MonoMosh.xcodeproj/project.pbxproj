@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E050A0C1C9176C0005D849C /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050A0A1C9176C0005D849C /* SignupViewController.m */; };
+		4E050A0D1C9176C0005D849C /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E050A0B1C9176C0005D849C /* SignupViewController.xib */; };
+		4E050A0F1C926874005D849C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E050A0E1C926874005D849C /* FBSDKCoreKit.framework */; };
+		4E050A121C926886005D849C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E050A101C926886005D849C /* FBSDKLoginKit.framework */; };
+		4E050A131C926886005D849C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E050A111C926886005D849C /* FBSDKShareKit.framework */; };
+		4E1C3F961C9927A400C2D403 /* InitialSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1C3F941C9927A400C2D403 /* InitialSettingViewController.m */; };
+		4E1C3F971C9927A400C2D403 /* InitialSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1C3F951C9927A400C2D403 /* InitialSettingViewController.xib */; };
+		4E1C3FA11C99BA0900C2D403 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1C3FA01C99BA0900C2D403 /* Accounts.framework */; };
+		4E1C3FA31C99BA1000C2D403 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1C3FA21C99BA1000C2D403 /* Social.framework */; };
+		4EAFA1491CAA0A19003B489F /* MMDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFA1481CAA0A19003B489F /* MMDatePickerView.m */; };
+		4EAFA14B1CAA0A34003B489F /* MMDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EAFA14A1CAA0A34003B489F /* MMDatePickerView.xib */; };
+		4EAFA14E1CAB58CB003B489F /* MyPageNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFA14D1CAB58CB003B489F /* MyPageNavigationViewController.m */; };
 		4EE96C011C67A9A20095F5DF /* addFriendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96BFA1C67A9A20095F5DF /* addFriendButton.png */; };
 		4EE96C021C67A9A20095F5DF /* friendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96BFB1C67A9A20095F5DF /* friendButton.png */; };
 		4EE96C031C67A9A20095F5DF /* notSettledButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96BFC1C67A9A20095F5DF /* notSettledButton.png */; };
@@ -14,10 +26,10 @@
 		4EE96C051C67A9A20095F5DF /* shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96BFE1C67A9A20095F5DF /* shadow.png */; };
 		4EE96C061C67A9A20095F5DF /* wantButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96BFF1C67A9A20095F5DF /* wantButton.png */; };
 		4EE96C071C67A9A20095F5DF /* wantListButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96C001C67A9A20095F5DF /* wantListButton.png */; };
-		4EE96C0E1C67AA3F0095F5DF /* MonoCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE96C091C67AA3F0095F5DF /* MonoCollectionReusableView.m */; };
-		4EE96C0F1C67AA3F0095F5DF /* MonoCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96C0A1C67AA3F0095F5DF /* MonoCollectionReusableView.xib */; };
-		4EE96C101C67AA3F0095F5DF /* MonoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE96C0C1C67AA3F0095F5DF /* MonoCollectionViewCell.m */; };
-		4EE96C111C67AA3F0095F5DF /* MonoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96C0D1C67AA3F0095F5DF /* MonoCollectionViewCell.xib */; };
+		4EE96C0E1C67AA3F0095F5DF /* MMCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE96C091C67AA3F0095F5DF /* MMCollectionReusableView.m */; };
+		4EE96C0F1C67AA3F0095F5DF /* MMCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96C0A1C67AA3F0095F5DF /* MMCollectionReusableView.xib */; };
+		4EE96C101C67AA3F0095F5DF /* MMCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE96C0C1C67AA3F0095F5DF /* MMCollectionViewCell.m */; };
+		4EE96C111C67AA3F0095F5DF /* MMCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96C0D1C67AA3F0095F5DF /* MMCollectionViewCell.xib */; };
 		4EE96C151C67AABE0095F5DF /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE96C131C67AABE0095F5DF /* DetailViewController.m */; };
 		4EE96C161C67AABE0095F5DF /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96C141C67AABE0095F5DF /* DetailViewController.xib */; };
 		4EE96C1C1C67ACCA0095F5DF /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE96C181C67ACCA0095F5DF /* FriendListViewController.m */; };
@@ -63,6 +75,22 @@
 
 /* Begin PBXFileReference section */
 		09293EF4CAAF4B15F18A07E5 /* Pods-MonoMosh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonoMosh.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonoMosh/Pods-MonoMosh.release.xcconfig"; sourceTree = "<group>"; };
+		4E050A091C9176C0005D849C /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		4E050A0A1C9176C0005D849C /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		4E050A0B1C9176C0005D849C /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
+		4E050A0E1C926874005D849C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		4E050A101C926886005D849C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		4E050A111C926886005D849C /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		4E1C3F931C9927A400C2D403 /* InitialSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialSettingViewController.h; sourceTree = "<group>"; };
+		4E1C3F941C9927A400C2D403 /* InitialSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialSettingViewController.m; sourceTree = "<group>"; };
+		4E1C3F951C9927A400C2D403 /* InitialSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitialSettingViewController.xib; sourceTree = "<group>"; };
+		4E1C3FA01C99BA0900C2D403 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		4E1C3FA21C99BA1000C2D403 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		4EAFA1471CAA0A19003B489F /* MMDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDatePickerView.h; sourceTree = "<group>"; };
+		4EAFA1481CAA0A19003B489F /* MMDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDatePickerView.m; sourceTree = "<group>"; };
+		4EAFA14A1CAA0A34003B489F /* MMDatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMDatePickerView.xib; sourceTree = "<group>"; };
+		4EAFA14C1CAB58CB003B489F /* MyPageNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageNavigationViewController.h; sourceTree = "<group>"; };
+		4EAFA14D1CAB58CB003B489F /* MyPageNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageNavigationViewController.m; sourceTree = "<group>"; };
 		4EE96BFA1C67A9A20095F5DF /* addFriendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addFriendButton.png; sourceTree = "<group>"; };
 		4EE96BFB1C67A9A20095F5DF /* friendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friendButton.png; sourceTree = "<group>"; };
 		4EE96BFC1C67A9A20095F5DF /* notSettledButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notSettledButton.png; sourceTree = "<group>"; };
@@ -70,12 +98,12 @@
 		4EE96BFE1C67A9A20095F5DF /* shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow.png; sourceTree = "<group>"; };
 		4EE96BFF1C67A9A20095F5DF /* wantButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wantButton.png; sourceTree = "<group>"; };
 		4EE96C001C67A9A20095F5DF /* wantListButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wantListButton.png; sourceTree = "<group>"; };
-		4EE96C081C67AA3F0095F5DF /* MonoCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonoCollectionReusableView.h; sourceTree = "<group>"; };
-		4EE96C091C67AA3F0095F5DF /* MonoCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonoCollectionReusableView.m; sourceTree = "<group>"; };
-		4EE96C0A1C67AA3F0095F5DF /* MonoCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonoCollectionReusableView.xib; sourceTree = "<group>"; };
-		4EE96C0B1C67AA3F0095F5DF /* MonoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonoCollectionViewCell.h; sourceTree = "<group>"; };
-		4EE96C0C1C67AA3F0095F5DF /* MonoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonoCollectionViewCell.m; sourceTree = "<group>"; };
-		4EE96C0D1C67AA3F0095F5DF /* MonoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonoCollectionViewCell.xib; sourceTree = "<group>"; };
+		4EE96C081C67AA3F0095F5DF /* MMCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCollectionReusableView.h; sourceTree = "<group>"; };
+		4EE96C091C67AA3F0095F5DF /* MMCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCollectionReusableView.m; sourceTree = "<group>"; };
+		4EE96C0A1C67AA3F0095F5DF /* MMCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMCollectionReusableView.xib; sourceTree = "<group>"; };
+		4EE96C0B1C67AA3F0095F5DF /* MMCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCollectionViewCell.h; sourceTree = "<group>"; };
+		4EE96C0C1C67AA3F0095F5DF /* MMCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCollectionViewCell.m; sourceTree = "<group>"; };
+		4EE96C0D1C67AA3F0095F5DF /* MMCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMCollectionViewCell.xib; sourceTree = "<group>"; };
 		4EE96C121C67AABE0095F5DF /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		4EE96C131C67AABE0095F5DF /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		4EE96C141C67AABE0095F5DF /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
@@ -123,7 +151,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E1C3FA31C99BA1000C2D403 /* Social.framework in Frameworks */,
+				4E1C3FA11C99BA0900C2D403 /* Accounts.framework in Frameworks */,
 				DD5617A71C64B371002880AA /* QuartzCore.framework in Frameworks */,
+				4E050A0F1C926874005D849C /* FBSDKCoreKit.framework in Frameworks */,
+				4E050A131C926886005D849C /* FBSDKShareKit.framework in Frameworks */,
+				4E050A121C926886005D849C /* FBSDKLoginKit.framework in Frameworks */,
 				C2925A43AA951B8516EA7E65 /* libPods-MonoMosh.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,6 +187,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4E050A081C91763B005D849C /* Initial */ = {
+			isa = PBXGroup;
+			children = (
+				4E050A091C9176C0005D849C /* SignupViewController.h */,
+				4E050A0A1C9176C0005D849C /* SignupViewController.m */,
+				4E050A0B1C9176C0005D849C /* SignupViewController.xib */,
+				4E1C3F931C9927A400C2D403 /* InitialSettingViewController.h */,
+				4E1C3F941C9927A400C2D403 /* InitialSettingViewController.m */,
+				4E1C3F951C9927A400C2D403 /* InitialSettingViewController.xib */,
+			);
+			name = Initial;
+			sourceTree = "<group>";
+		};
 		4EE96BF71C67A9640095F5DF /* Friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,12 +215,15 @@
 		4EE96BF81C67A9740095F5DF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4EE96C081C67AA3F0095F5DF /* MonoCollectionReusableView.h */,
-				4EE96C091C67AA3F0095F5DF /* MonoCollectionReusableView.m */,
-				4EE96C0A1C67AA3F0095F5DF /* MonoCollectionReusableView.xib */,
-				4EE96C0B1C67AA3F0095F5DF /* MonoCollectionViewCell.h */,
-				4EE96C0C1C67AA3F0095F5DF /* MonoCollectionViewCell.m */,
-				4EE96C0D1C67AA3F0095F5DF /* MonoCollectionViewCell.xib */,
+				4EE96C081C67AA3F0095F5DF /* MMCollectionReusableView.h */,
+				4EE96C091C67AA3F0095F5DF /* MMCollectionReusableView.m */,
+				4EE96C0A1C67AA3F0095F5DF /* MMCollectionReusableView.xib */,
+				4EE96C0B1C67AA3F0095F5DF /* MMCollectionViewCell.h */,
+				4EE96C0C1C67AA3F0095F5DF /* MMCollectionViewCell.m */,
+				4EE96C0D1C67AA3F0095F5DF /* MMCollectionViewCell.xib */,
+				4EAFA1471CAA0A19003B489F /* MMDatePickerView.h */,
+				4EAFA1481CAA0A19003B489F /* MMDatePickerView.m */,
+				4EAFA14A1CAA0A34003B489F /* MMDatePickerView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -212,6 +261,8 @@
 				DD9585911C60849F0058B2FE /* TimeLine.storyboard */,
 				DD9585641C6084700058B2FE /* MyPageViewController.h */,
 				DD9585651C6084700058B2FE /* MyPageViewController.m */,
+				4EAFA14C1CAB58CB003B489F /* MyPageNavigationViewController.h */,
+				4EAFA14D1CAB58CB003B489F /* MyPageNavigationViewController.m */,
 				DD9585931C6084AA0058B2FE /* MyPage.storyboard */,
 				4EE96C121C67AABE0095F5DF /* DetailViewController.h */,
 				4EE96C131C67AABE0095F5DF /* DetailViewController.m */,
@@ -224,6 +275,7 @@
 		4EE96C231C69F4CC0095F5DF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4E050A081C91763B005D849C /* Initial */,
 				4EE96C221C69F4920095F5DF /* Timeline */,
 				4EE96C211C69F4890095F5DF /* Post */,
 				DD9585A31C609F3C0058B2FE /* NotifViewController.h */,
@@ -236,6 +288,8 @@
 		86B3D5793F25217CCD5E1B38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E1C3FA21C99BA1000C2D403 /* Social.framework */,
+				4E1C3FA01C99BA0900C2D403 /* Accounts.framework */,
 				DD5617A61C64B371002880AA /* QuartzCore.framework */,
 				CA4284A338E77D9EBCD22381 /* libPods-MonoMosh.a */,
 			);
@@ -286,6 +340,9 @@
 		DD95855B1C6084700058B2FE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4E050A101C926886005D849C /* FBSDKLoginKit.framework */,
+				4E050A111C926886005D849C /* FBSDKShareKit.framework */,
+				4E050A0E1C926874005D849C /* FBSDKCoreKit.framework */,
 				DD95855C1C6084700058B2FE /* main.m */,
 			);
 			name = "Supporting Files";
@@ -421,18 +478,21 @@
 				DDEA98221C68C73C00ADF86C /* profileImage.png in Resources */,
 				DD9585AA1C60A2BF0058B2FE /* Camera.storyboard in Resources */,
 				DD95856B1C6084700058B2FE /* Assets.xcassets in Resources */,
+				4E050A0D1C9176C0005D849C /* SignupViewController.xib in Resources */,
 				4EE96C1D1C67ACCA0095F5DF /* FriendPage.storyboard in Resources */,
 				4EE96C011C67A9A20095F5DF /* addFriendButton.png in Resources */,
 				4EE96C071C67A9A20095F5DF /* wantListButton.png in Resources */,
-				4EE96C0F1C67AA3F0095F5DF /* MonoCollectionReusableView.xib in Resources */,
+				4EE96C0F1C67AA3F0095F5DF /* MMCollectionReusableView.xib in Resources */,
 				4EE96C061C67A9A20095F5DF /* wantButton.png in Resources */,
 				DD9585691C6084700058B2FE /* Main.storyboard in Resources */,
 				4EE96C021C67A9A20095F5DF /* friendButton.png in Resources */,
 				DD9585941C6084AA0058B2FE /* MyPage.storyboard in Resources */,
-				4EE96C111C67AA3F0095F5DF /* MonoCollectionViewCell.xib in Resources */,
+				4EE96C111C67AA3F0095F5DF /* MMCollectionViewCell.xib in Resources */,
 				4EE96C041C67A9A20095F5DF /* optionButton.png in Resources */,
 				DD9585A21C609D5E0058B2FE /* Notif.storyboard in Resources */,
+				4EAFA14B1CAA0A34003B489F /* MMDatePickerView.xib in Resources */,
 				DD9585921C60849F0058B2FE /* TimeLine.storyboard in Resources */,
+				4E1C3F971C9927A400C2D403 /* InitialSettingViewController.xib in Resources */,
 				4EE96C051C67A9A20095F5DF /* shadow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,11 +569,15 @@
 				DD9585661C6084700058B2FE /* MyPageViewController.m in Sources */,
 				4EE96C1E1C67ACCA0095F5DF /* FriendPageViewController.m in Sources */,
 				DD9585601C6084700058B2FE /* AppDelegate.m in Sources */,
-				4EE96C0E1C67AA3F0095F5DF /* MonoCollectionReusableView.m in Sources */,
-				4EE96C101C67AA3F0095F5DF /* MonoCollectionViewCell.m in Sources */,
+				4E050A0C1C9176C0005D849C /* SignupViewController.m in Sources */,
+				4E1C3F961C9927A400C2D403 /* InitialSettingViewController.m in Sources */,
+				4EE96C0E1C67AA3F0095F5DF /* MMCollectionReusableView.m in Sources */,
+				4EE96C101C67AA3F0095F5DF /* MMCollectionViewCell.m in Sources */,
 				DD9585A51C609F3C0058B2FE /* NotifViewController.m in Sources */,
 				4EE96C1C1C67ACCA0095F5DF /* FriendListViewController.m in Sources */,
 				4EE96C151C67AABE0095F5DF /* DetailViewController.m in Sources */,
+				4EAFA14E1CAB58CB003B489F /* MyPageNavigationViewController.m in Sources */,
+				4EAFA1491CAA0A19003B489F /* MMDatePickerView.m in Sources */,
 				DD95859A1C608BC10058B2FE /* MainTabBarViewController.m in Sources */,
 				DD9585631C6084700058B2FE /* TimeLineViewController.m in Sources */,
 				DD9585A81C60A1EA0058B2FE /* CameraViewController.m in Sources */,
@@ -657,6 +721,11 @@
 			baseConfigurationReference = 7C6D197C68E742127C256327 /* Pods-MonoMosh.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MonoMosh",
+				);
 				INFOPLIST_FILE = MonoMosh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = a.MonoMosh;
@@ -669,6 +738,11 @@
 			baseConfigurationReference = 09293EF4CAAF4B15F18A07E5 /* Pods-MonoMosh.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MonoMosh",
+				);
 				INFOPLIST_FILE = MonoMosh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = a.MonoMosh;

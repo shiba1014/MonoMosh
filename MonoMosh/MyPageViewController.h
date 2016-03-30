@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyPageViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface MyPageViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
+    NSMutableArray *monoArray;
+    UIButton *moreButton;
+    UIActivityIndicatorView *indicator;
+}
+
+@property(strong,nonatomic) UIImage *profileImage;
+@property(weak,nonatomic) NSString *username;
 
 @end
 

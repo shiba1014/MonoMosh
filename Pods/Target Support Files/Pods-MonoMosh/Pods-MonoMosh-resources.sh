@@ -58,6 +58,8 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "Parse/Parse/Resources/en.lproj"
+  install_resource "ParseTwitterUtils/Resources/en.lproj"
   install_resource "YCameraView/YCameraViewController/UI/flash-auto.png"
   install_resource "YCameraView/YCameraViewController/UI/flash-auto@2x.png"
   install_resource "YCameraView/YCameraViewController/UI/flash-off.png"
@@ -81,6 +83,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "YCameraView/YCameraViewController/YCameraViewController.xib"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "Parse/Parse/Resources/en.lproj"
+  install_resource "ParseTwitterUtils/Resources/en.lproj"
   install_resource "YCameraView/YCameraViewController/UI/flash-auto.png"
   install_resource "YCameraView/YCameraViewController/UI/flash-auto@2x.png"
   install_resource "YCameraView/YCameraViewController/UI/flash-off.png"
