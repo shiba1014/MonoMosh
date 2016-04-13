@@ -19,6 +19,12 @@
 		4EAFA1491CAA0A19003B489F /* MMDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFA1481CAA0A19003B489F /* MMDatePickerView.m */; };
 		4EAFA14B1CAA0A34003B489F /* MMDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EAFA14A1CAA0A34003B489F /* MMDatePickerView.xib */; };
 		4EAFA14E1CAB58CB003B489F /* MyPageNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFA14D1CAB58CB003B489F /* MyPageNavigationViewController.m */; };
+		4EAFA1511CACCB87003B489F /* CameraNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFA1501CACCB87003B489F /* CameraNavigationViewController.m */; };
+		4ECBF6711CBB22A30005B804 /* WantListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECBF6701CBB22A30005B804 /* WantListViewController.m */; };
+		4ECBF6761CBE6CD80005B804 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECBF6741CBE6CD80005B804 /* SearchViewController.m */; };
+		4ECBF6791CBE6D310005B804 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ECBF6781CBE6D310005B804 /* Search.storyboard */; };
+		4EDE22A51CB34B360042BE53 /* MMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDE22A31CB34B360042BE53 /* MMTableViewCell.m */; };
+		4EDE22A61CB34B360042BE53 /* MMTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EDE22A41CB34B360042BE53 /* MMTableViewCell.xib */; };
 		4EE96C011C67A9A20095F5DF /* addFriendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96BFA1C67A9A20095F5DF /* addFriendButton.png */; };
 		4EE96C021C67A9A20095F5DF /* friendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96BFB1C67A9A20095F5DF /* friendButton.png */; };
 		4EE96C031C67A9A20095F5DF /* notSettledButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE96BFC1C67A9A20095F5DF /* notSettledButton.png */; };
@@ -91,6 +97,16 @@
 		4EAFA14A1CAA0A34003B489F /* MMDatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMDatePickerView.xib; sourceTree = "<group>"; };
 		4EAFA14C1CAB58CB003B489F /* MyPageNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageNavigationViewController.h; sourceTree = "<group>"; };
 		4EAFA14D1CAB58CB003B489F /* MyPageNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageNavigationViewController.m; sourceTree = "<group>"; };
+		4EAFA14F1CACCB87003B489F /* CameraNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraNavigationViewController.h; sourceTree = "<group>"; };
+		4EAFA1501CACCB87003B489F /* CameraNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraNavigationViewController.m; sourceTree = "<group>"; };
+		4ECBF66F1CBB22A30005B804 /* WantListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WantListViewController.h; sourceTree = "<group>"; };
+		4ECBF6701CBB22A30005B804 /* WantListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WantListViewController.m; sourceTree = "<group>"; };
+		4ECBF6731CBE6CD80005B804 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		4ECBF6741CBE6CD80005B804 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		4ECBF6781CBE6D310005B804 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		4EDE22A21CB34B360042BE53 /* MMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTableViewCell.h; sourceTree = "<group>"; };
+		4EDE22A31CB34B360042BE53 /* MMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTableViewCell.m; sourceTree = "<group>"; };
+		4EDE22A41CB34B360042BE53 /* MMTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMTableViewCell.xib; sourceTree = "<group>"; };
 		4EE96BFA1C67A9A20095F5DF /* addFriendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addFriendButton.png; sourceTree = "<group>"; };
 		4EE96BFB1C67A9A20095F5DF /* friendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friendButton.png; sourceTree = "<group>"; };
 		4EE96BFC1C67A9A20095F5DF /* notSettledButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notSettledButton.png; sourceTree = "<group>"; };
@@ -200,6 +216,16 @@
 			name = Initial;
 			sourceTree = "<group>";
 		};
+		4ECBF6721CBE6CA10005B804 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				4ECBF6731CBE6CD80005B804 /* SearchViewController.h */,
+				4ECBF6741CBE6CD80005B804 /* SearchViewController.m */,
+				4ECBF6781CBE6D310005B804 /* Search.storyboard */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		4EE96BF71C67A9640095F5DF /* Friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +250,9 @@
 				4EAFA1471CAA0A19003B489F /* MMDatePickerView.h */,
 				4EAFA1481CAA0A19003B489F /* MMDatePickerView.m */,
 				4EAFA14A1CAA0A34003B489F /* MMDatePickerView.xib */,
+				4EDE22A21CB34B360042BE53 /* MMTableViewCell.h */,
+				4EDE22A31CB34B360042BE53 /* MMTableViewCell.m */,
+				4EDE22A41CB34B360042BE53 /* MMTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -246,6 +275,8 @@
 		4EE96C211C69F4890095F5DF /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				4EAFA14F1CACCB87003B489F /* CameraNavigationViewController.h */,
+				4EAFA1501CACCB87003B489F /* CameraNavigationViewController.m */,
 				DD9585A61C60A1EA0058B2FE /* CameraViewController.h */,
 				DD9585A71C60A1EA0058B2FE /* CameraViewController.m */,
 				DD9585A91C60A2BF0058B2FE /* Camera.storyboard */,
@@ -259,14 +290,16 @@
 				DD9585611C6084700058B2FE /* TimeLineViewController.h */,
 				DD9585621C6084700058B2FE /* TimeLineViewController.m */,
 				DD9585911C60849F0058B2FE /* TimeLine.storyboard */,
-				DD9585641C6084700058B2FE /* MyPageViewController.h */,
-				DD9585651C6084700058B2FE /* MyPageViewController.m */,
 				4EAFA14C1CAB58CB003B489F /* MyPageNavigationViewController.h */,
 				4EAFA14D1CAB58CB003B489F /* MyPageNavigationViewController.m */,
+				DD9585641C6084700058B2FE /* MyPageViewController.h */,
+				DD9585651C6084700058B2FE /* MyPageViewController.m */,
 				DD9585931C6084AA0058B2FE /* MyPage.storyboard */,
 				4EE96C121C67AABE0095F5DF /* DetailViewController.h */,
 				4EE96C131C67AABE0095F5DF /* DetailViewController.m */,
 				4EE96C141C67AABE0095F5DF /* DetailViewController.xib */,
+				4ECBF66F1CBB22A30005B804 /* WantListViewController.h */,
+				4ECBF6701CBB22A30005B804 /* WantListViewController.m */,
 				4EE96BF71C67A9640095F5DF /* Friends */,
 			);
 			name = Timeline;
@@ -275,6 +308,7 @@
 		4EE96C231C69F4CC0095F5DF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4ECBF6721CBE6CA10005B804 /* Search */,
 				4E050A081C91763B005D849C /* Initial */,
 				4EE96C221C69F4920095F5DF /* Timeline */,
 				4EE96C211C69F4890095F5DF /* Post */,
@@ -478,10 +512,12 @@
 				DDEA98221C68C73C00ADF86C /* profileImage.png in Resources */,
 				DD9585AA1C60A2BF0058B2FE /* Camera.storyboard in Resources */,
 				DD95856B1C6084700058B2FE /* Assets.xcassets in Resources */,
+				4EDE22A61CB34B360042BE53 /* MMTableViewCell.xib in Resources */,
 				4E050A0D1C9176C0005D849C /* SignupViewController.xib in Resources */,
 				4EE96C1D1C67ACCA0095F5DF /* FriendPage.storyboard in Resources */,
 				4EE96C011C67A9A20095F5DF /* addFriendButton.png in Resources */,
 				4EE96C071C67A9A20095F5DF /* wantListButton.png in Resources */,
+				4ECBF6791CBE6D310005B804 /* Search.storyboard in Resources */,
 				4EE96C0F1C67AA3F0095F5DF /* MMCollectionReusableView.xib in Resources */,
 				4EE96C061C67A9A20095F5DF /* wantButton.png in Resources */,
 				DD9585691C6084700058B2FE /* Main.storyboard in Resources */,
@@ -568,15 +604,19 @@
 			files = (
 				DD9585661C6084700058B2FE /* MyPageViewController.m in Sources */,
 				4EE96C1E1C67ACCA0095F5DF /* FriendPageViewController.m in Sources */,
+				4ECBF6761CBE6CD80005B804 /* SearchViewController.m in Sources */,
 				DD9585601C6084700058B2FE /* AppDelegate.m in Sources */,
 				4E050A0C1C9176C0005D849C /* SignupViewController.m in Sources */,
 				4E1C3F961C9927A400C2D403 /* InitialSettingViewController.m in Sources */,
+				4ECBF6711CBB22A30005B804 /* WantListViewController.m in Sources */,
 				4EE96C0E1C67AA3F0095F5DF /* MMCollectionReusableView.m in Sources */,
 				4EE96C101C67AA3F0095F5DF /* MMCollectionViewCell.m in Sources */,
 				DD9585A51C609F3C0058B2FE /* NotifViewController.m in Sources */,
 				4EE96C1C1C67ACCA0095F5DF /* FriendListViewController.m in Sources */,
 				4EE96C151C67AABE0095F5DF /* DetailViewController.m in Sources */,
 				4EAFA14E1CAB58CB003B489F /* MyPageNavigationViewController.m in Sources */,
+				4EDE22A51CB34B360042BE53 /* MMTableViewCell.m in Sources */,
+				4EAFA1511CACCB87003B489F /* CameraNavigationViewController.m in Sources */,
 				4EAFA1491CAA0A19003B489F /* MMDatePickerView.m in Sources */,
 				DD95859A1C608BC10058B2FE /* MainTabBarViewController.m in Sources */,
 				DD9585631C6084700058B2FE /* TimeLineViewController.m in Sources */,

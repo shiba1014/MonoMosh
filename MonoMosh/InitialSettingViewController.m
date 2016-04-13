@@ -164,10 +164,13 @@
     PFFile *imageFile = [PFFile fileWithName:@"profileImage.png" data:imageData];
     currentUser[@"profileImageFile"] = imageFile;
     currentUser[@"usernameForUser"] = username;
-    currentUser[@"birthDay"] = DPV.datePicker.date;
+    currentUser[@"birthday"] = DPV.datePicker.date;
     [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if(succeeded){
+            NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+            [ud setObject:DPV.datePicker.date forKey:@"birthday"];
+            [ud synchronize];
             [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
         }else{
             NSLog(@"saveError:%@",error);

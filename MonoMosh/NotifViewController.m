@@ -7,6 +7,7 @@
 //
 
 #import "NotifViewController.h"
+#import "MMTableViewCell.h"
 
 @interface NotifViewController ()
 
@@ -38,6 +39,9 @@
     [notifArray addObject:notifDic];
  
     self.title = @"Notif";
+    
+    UINib *nib = [UINib nibWithNibName:@"MMTableViewCell" bundle:nil];
+    [table registerNib:nib forCellReuseIdentifier:@"MMTableViewCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,22 +59,20 @@
     return notifArray.count;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80.0f;
+}
+
 //各セルの要素を設定する
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell =
-    [tableView dequeueReusableCellWithIdentifier:@"tableViewCell"];
+    static NSString *cellIdentifier = @"MMTableViewCell";
+    MMTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    if(cell==nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"tableViewCell"];
-        
-    }
-    NSDictionary *dic = notifArray[indexPath.row];
-    UIImage *img = [dic objectForKey:@"profileImage"];
+    cell.profileImage = [UIImage imageNamed:@"profileImage.png"];
+    cell.username = @"username";
     
-    cell.imageView.image = img;
-    cell.textLabel.text = [dic objectForKey:@"labelText"];
-    cell.textLabel.font = [UIFont systemFontOfSize:13];
+    [cell setCell];
     
     return cell;
 }

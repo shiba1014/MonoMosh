@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "TimeLineViewController.h"
-#import "MyPageViewController.h"
 #import <Parse/Parse.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <PFFacebookUtils.h>

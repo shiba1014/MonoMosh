@@ -23,7 +23,7 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
 
 @implementation MyPageViewController
 
-@synthesize profileImage,username;
+@synthesize profileImage,username,monoArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -58,8 +58,11 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if(!error){
+            if(objects.count == 0 || objects.count < query.limit)
+                moreButton.hidden = YES;
             for(PFObject *object in objects){
                 NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                dic[@"object"] = object;
                 dic[@"postName"] = object[@"postName"];
                 dic[@"postDiscription"] = object[@"postDiscription"];
                 PFUser *postUser = object[@"postUser"];
@@ -97,12 +100,11 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         indicator.hidden = YES;
         if(!error){
-            if(objects.count == 0){
+            if(objects.count == 0 || objects.count < query.limit)
                 moreButton.hidden = YES;
-                return;
-            }
             for(PFObject *object in objects){
                 NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                dic[@"object"] = object;
                 dic[@"postName"] = object[@"postName"];
                 dic[@"postDiscription"] = object[@"postDiscription"];
                 PFUser *postUser = object[@"postUser"];
@@ -174,7 +176,7 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if(monoArray.count == 0){
-        return 10;
+        return 9;
     }
     return monoArray.count;
 
@@ -235,6 +237,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     detailVC.postUserId = dic[@"postUserId"];
     detailVC.postUsername = username;
     detailVC.profileImage = profileImage;
+    detailVC.mono = dic[@"object"];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 

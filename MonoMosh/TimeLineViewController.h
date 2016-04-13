@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface TimeLineViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
-    NSMutableArray *monoArray;
+    UIButton *moreButton;
+    UIActivityIndicatorView *indicator;
 }
+
+@property(strong,nonatomic) NSMutableArray *monoArray;
+
+-(void)loadMono;
 
 @end
 

@@ -12,11 +12,15 @@
 @interface DetailViewController : UIViewController<UITextViewDelegate>{
     IBOutlet UIImageView *profileImageView,*monoImageView;
     IBOutlet UILabel *usernameLabel,*monoLabel,*detailLabel;
-    IBOutlet UIButton *optionButton,*wantButton;
+    IBOutlet UIButton *optionButton,*wantListButton,*goodButton,*wantButton;
+    NSUserDefaults *ud;
+    NSMutableArray *wantMonoArray;
 }
 
 @property(strong,nonatomic) NSString *postUserId,*postId,*postUsername,*postName,*postDiscription;
 @property(strong,nonatomic) UIImage *postPhoto,*profileImage;
+@property(strong,nonatomic) PFUser *friendUser;
+@property(strong,nonatomic) PFObject *mono;
 
 -(IBAction)moveToUserPage;
 

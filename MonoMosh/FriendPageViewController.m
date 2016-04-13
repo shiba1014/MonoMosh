@@ -39,6 +39,8 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
     
+    monoArray = [[NSMutableArray alloc] init];
+    
     [self loadMono];
     
     if(!friendUser)
@@ -60,8 +62,13 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if(!error){
+            if(objects.count == 0 || objects.count < query.limit)
+                moreButton.hidden = YES;
             for(PFObject *object in objects){
+                if(monoArray.count < query.limit)
+                    moreButton.hidden = YES;
                 NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                dic[@"object"] = object;
                 dic[@"postName"] = object[@"postName"];
                 dic[@"postDiscription"] = object[@"postDiscription"];
                 PFUser *postUser = object[@"postUser"];
@@ -99,12 +106,11 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         indicator.hidden = YES;
         if(!error){
-            if(objects.count == 0){
+            if(objects.count == 0 || objects.count < query.limit)
                 moreButton.hidden = YES;
-                return;
-            }
             for(PFObject *object in objects){
                 NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                dic[@"object"] = object;
                 dic[@"postName"] = object[@"postName"];
                 dic[@"postDiscription"] = object[@"postDiscription"];
                 PFUser *postUser = object[@"postUser"];
@@ -169,15 +175,22 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 17;
+    if(monoArray.count == 0){
+        return 9;
+    }
+    return monoArray.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MMCollectionViewCell *cell = (MMCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor orangeColor];
+    cell.backgroundColor = [UIColor lightGrayColor];
     cell.shadowImage.hidden = YES;
     cell.monoName.hidden = YES;
+    if(monoArray.count == 0)
+        return cell;
+    NSDictionary *dic = monoArray[indexPath.row];
+    cell.imageView.image = dic[@"postPhoto"];
     return cell;
 }
 
@@ -220,6 +233,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     detailVC.postUserId = dic[@"postUserId"];
     detailVC.postUsername = username;
     detailVC.profileImage = profileImage;
+    detailVC.mono = dic[@"object"];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 -(void)loadMore{
@@ -232,10 +246,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 -(void)moveToFriendList{
     FriendListViewController *friendListVC = [[FriendListViewController alloc] init];
     [self.navigationController pushViewController:friendListVC animated:YES];
-}
-
--(void)getUserData{
-    
 }
 
 -(void)getUser{

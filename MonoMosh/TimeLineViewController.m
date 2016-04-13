@@ -15,14 +15,13 @@
 
 static NSString *cellIdentifier = @"MMCollectionViewCell";
 
-@interface TimeLineViewController (){
-    UIButton *moreButton;
-    UIActivityIndicatorView *indicator;
-}
+@interface TimeLineViewController ()
 
 @end
 
 @implementation TimeLineViewController
+
+@synthesize monoArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -63,8 +62,11 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if(!error){
+            if(objects.count == 0 || objects.count < query.limit)
+                moreButton.hidden = YES;
             for(PFObject *object in objects){
                 NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                dic[@"object"] = object;
                 dic[@"postName"] = object[@"postName"];
                 dic[@"postDiscription"] = object[@"postDiscription"];
                 PFUser *postUser = object[@"postUser"];
@@ -101,6 +103,7 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
         if(!error){
             for(PFObject *object in objects){
                 NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                dic[@"object"] = object;
                 dic[@"postName"] = object[@"postName"];
                 dic[@"postDiscription"] = object[@"postDiscription"];
                 PFUser *postUser = object[@"postUser"];
@@ -136,12 +139,11 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if(!error){
             indicator.hidden = YES;
-            if(objects.count == 0){
+            if(objects.count == 0 || objects.count < query.limit)
                 moreButton.hidden = YES;
-                return;
-            }
             for(PFObject *object in objects){
                 NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                dic[@"object"] = object;
                 dic[@"postName"] = object[@"postName"];
                 dic[@"postDiscription"] = object[@"postDiscription"];
                 PFUser *postUser = object[@"postUser"];
@@ -241,6 +243,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     detailVC.postDiscription = dic[@"postDiscription"];
     detailVC.postId = dic[@"postId"];
     detailVC.postUserId = dic[@"postUserId"];
+    detailVC.mono = dic[@"object"];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 

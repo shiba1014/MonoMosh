@@ -35,8 +35,8 @@
     
     FBSDKLoginManager *manager = [[FBSDKLoginManager alloc] init];
     
-    [manager logInWithReadPermissions:@[@"public_profile",@"user_birthday",@"user_friends"] handler:
-     ^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+//    [manager logInWithReadPermissions:@[@"public_profile",@"user_birthday",@"user_friends"] handler:
+//     ^(FBSDKLoginManagerLoginResult *result, NSError *error) {
 
     [PFFacebookUtils logInWithPermissions:@[@"public_profile",@"user_birthday",@"user_friends"] block:^(PFUser * _Nullable user, NSError * _Nullable error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -82,7 +82,7 @@
             [self presentViewController:ac animated:YES completion:nil];
         }
     }];
-     }];
+//     }];
 }
 /*
 #pragma mark - Navigation

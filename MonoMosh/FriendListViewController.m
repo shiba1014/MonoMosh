@@ -8,6 +8,7 @@
 
 #import "FriendListViewController.h"
 #import "FriendPageViewController.h"
+#import "MMTableViewCell.h"
 
 @interface FriendListViewController ()
 
@@ -17,14 +18,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
+    UINib *nib = [UINib nibWithNibName:@"MMTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"MMTableViewCell"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.navigationItem.backBarButtonItem = backButton;
 }
 
 #pragma mark - Table view data source
@@ -34,20 +38,23 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+        
     return 10;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80.0f;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if(!cell){
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
+    static NSString *cellIdentifier = @"MMTableViewCell";
+    MMTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    cell.imageView.image = [UIImage imageNamed:@"profileImage.png"];
-    cell.textLabel.text = @"username";
+    cell.profileImage = [UIImage imageNamed:@"profileImage.png"];
+    cell.username = @"username";
+    
+    [cell setCell];
     
     return cell;
 }
@@ -60,8 +67,5 @@
     [self.navigationController pushViewController:friendPageVC animated:YES];
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 100;
-//}
 
 @end

@@ -76,7 +76,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="detailTextView" destination="Yz2-9p-wBY" id="KGG-1z-l8X"/>
-                        <outlet property="imgView" destination="wzr-kf-BHq" id="ZD1-EO-HQg"/>
+                        <outlet property="imageView" destination="wzr-kf-BHq" id="7d5-IC-Shh"/>
                         <outlet property="nameTextField" destination="bza-Pf-3qp" id="frD-6X-2Fk"/>
                     </connections>
                 </viewController>

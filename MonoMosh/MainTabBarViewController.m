@@ -7,7 +7,6 @@
 //
 
 #import "MainTabBarViewController.h"
-#import "CameraViewController.h"
 
 @interface MainTabBarViewController ()
 
@@ -26,18 +25,21 @@
     UIViewController *tlViewController = [tlStoryboard instantiateInitialViewController];
      [viewControllers addObject:tlViewController];
     
+    UIStoryboard *searchStoryboard = [UIStoryboard storyboardWithName:@"Search" bundle:[NSBundle mainBundle]];
+    UIViewController *searchViewController = [searchStoryboard instantiateInitialViewController];
+    [viewControllers addObject:searchViewController];
+    
     UIStoryboard *cameraStoryboard = [UIStoryboard storyboardWithName:@"Camera" bundle:[NSBundle mainBundle]];
     UIViewController *cameraViewController = [cameraStoryboard instantiateInitialViewController];
     [viewControllers addObject:cameraViewController];
-
-    UIStoryboard *mpStoryboard = [UIStoryboard storyboardWithName:@"MyPage" bundle:[NSBundle mainBundle]];
-    UIViewController *mpViewController = [mpStoryboard instantiateInitialViewController];
-    [viewControllers addObject:mpViewController];
-    
     
     UIStoryboard *notifStoryboard = [UIStoryboard storyboardWithName:@"Notif" bundle:[NSBundle mainBundle]];
     UIViewController *notifViewController = [notifStoryboard instantiateInitialViewController];
     [viewControllers addObject:notifViewController];
+    
+    UIStoryboard *mpStoryboard = [UIStoryboard storyboardWithName:@"MyPage" bundle:[NSBundle mainBundle]];
+    UIViewController *mpViewController = [mpStoryboard instantiateInitialViewController];
+    [viewControllers addObject:mpViewController];
     
     // TabBarController の持つ ViewController の配列に代入
     self.viewControllers = viewControllers;

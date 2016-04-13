@@ -13,7 +13,7 @@
 
 @interface CameraViewController : UIViewController <YCameraViewControllerDelegate,UITextFieldDelegate,UITextViewDelegate,MBProgressHUDDelegate> {
 
-    IBOutlet UIImageView *imgView;
+    IBOutlet UIImageView *imageView;
     IBOutlet UITextField *nameTextField;
     IBOutlet UITextView *detailTextView;
     
@@ -21,5 +21,9 @@
     
     MBProgressHUD *hud;
 }
+
+@property (strong,nonatomic) UIImage *postPhoto;
+@property (strong,nonatomic) NSString *postName,*postDiscription,*postId;
+@property BOOL isEdit;
 
 @end
