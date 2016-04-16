@@ -34,6 +34,10 @@
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
     
+    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:0.106 green:0.506 blue:0.243 alpha:1.000];
+    
     return YES;
 }
 
@@ -69,5 +73,100 @@
                                                 sourceApplication:sourceApplication
                                                        annotation:annotation];
 }
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    NSString *channel = [NSString stringWithFormat:@"U%@",[PFUser currentUser].objectId];
+    currentInstallation.channels = @[ channel ];
+    [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler {
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    if(localNotification == nil) {
+        return;
+    }
+    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    
+    NSString *alertString = [[userInfo objectForKey:@"aps"] valueForKey:@"alert"];
+    NSString *userId = [userInfo valueForKey:@"userId"];
+    NSString *postId = [userInfo valueForKey:@"postId"];
+    NSString *type = [userInfo valueForKey:@"type"];
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber++;
+    
+    NSMutableArray *notifArray = [[NSMutableArray alloc] initWithArray:[ud arrayForKey:@"notif"]];
+    NSMutableDictionary *notifDic = [NSMutableDictionary dictionary];
+    
+    if([type isEqualToString:@"want"]){
+        
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"objectId" equalTo:userId];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object,NSError *error){
+            if(!error){
+                [notifDic setObject:alertString forKey:@"alertStr"];
+                [notifDic setObject:userId forKey:@"userId"];
+                [notifDic setObject:postId forKey:@"postId"];
+                [notifDic setObject:@"want" forKey:@"type"];
+                [notifArray insertObject:notifDic atIndex:0];
+                [ud setObject:notifArray forKey:@"notif"];
+                [ud synchronize];
+                
+                PFFile *imageFile = object[@"profileImageFile"];
+                [imageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error){
+                    if(!error){
+                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userId == %@",object.objectId];
+                        NSMutableDictionary *dic = [[[notifArray filteredArrayUsingPredicate:predicate] firstObject] mutableCopy];
+                        NSUInteger index = [notifArray indexOfObject:dic];
+                        [dic setObject:imageData forKey:@"image"];
+                        [notifArray replaceObjectAtIndex:index withObject:dic];
+                        [ud setObject:notifArray forKey:@"notifArray"];
+                        [ud synchronize];
+                    }
+                }];
+            }
+        }];
+    }else if([type isEqualToString:@"negotiation"]){
+        PFQuery *query = [PFQuery queryWithClassName:@"PostObject"];
+        [query whereKey:@"objectId" equalTo:postId];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            if(!error){
+                [notifDic setObject:alertString forKey:@"alertStr"];
+                [notifDic setObject:userId forKey:@"userId"];
+                [notifDic setObject:postId forKey:@"postId"];
+                [notifDic setObject:@"negotiation" forKey:@"type"];
+                [notifArray insertObject:notifDic atIndex:0];
+                [ud setObject:notifArray forKey:@"notif"];
+                [ud synchronize];
+                PFFile *imageFile = object[@"postPhoto"];
+                [imageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error){
+                    if(!error){
+                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userId == %@",object.objectId];
+                        NSMutableDictionary *dic = [[[notifArray filteredArrayUsingPredicate:predicate] firstObject] mutableCopy];
+                        NSUInteger index = [notifArray indexOfObject:dic];
+                        [dic setObject:imageData forKey:@"image"];
+                        [notifArray replaceObjectAtIndex:index withObject:dic];
+                        [ud setObject:notifArray forKey:@"notifArray"];
+                        [ud synchronize];
+                    }
+                }];
+            }
+        }];
+    }
+        
+        UIApplicationState applicationState = [[UIApplication sharedApplication] applicationState];
+        if (applicationState == UIApplicationStateActive) {
+            //TODO:フォアグラウンドだとバナーが出ない
+            [PFPush handlePush:userInfo];
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+        }
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
 
 @end

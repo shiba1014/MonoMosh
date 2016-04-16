@@ -16,7 +16,7 @@
 }
 
 @property(strong,nonatomic) UIImage *profileImage;
-@property(strong,nonatomic) NSString *username,*friendUserId,*friendUsername;
+@property(strong,nonatomic) NSString *username,*friendUserId,*friendUsername,*postNum,*friendNum,*abilityStr;
 @property(strong,nonatomic) PFUser *friendUser;
 
 @end

@@ -14,10 +14,9 @@
 }
 
 @property(strong,nonatomic) UIImage *profileImage;
-@property(weak,nonatomic) NSString *username;
+@property(weak,nonatomic) NSString *username,*postNum,*friendNum,*abilityStr;
 @property(strong,nonatomic) NSMutableArray *monoArray;
 
 -(void)loadMono;
 
 @end
-

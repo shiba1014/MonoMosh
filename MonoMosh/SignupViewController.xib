@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignupViewController">
@@ -12,12 +13,23 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash.png" translatesAutoresizingMaskIntoConstraints="NO" id="VZ1-ip-Vbl">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yG1-Kh-T73">
+                    <rect key="frame" x="0.0" y="511" width="414" height="60"/>
+                    <color key="backgroundColor" red="0.10588235294117647" green="0.50588235294117645" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cP-Vz-6Se">
-                    <rect key="frame" x="213" y="450" width="174" height="30"/>
-                    <state key="normal" title="facebookで登録/ログイン"/>
+                    <rect key="frame" x="102" y="526" width="210" height="30"/>
+                    <state key="normal" title="Sign up / Log in with Facebook">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="facebook:" destination="-1" eventType="touchUpInside" id="YWm-h4-FxL"/>
                     </connections>
@@ -25,9 +37,22 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="yG1-Kh-T73" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3OY-JX-Om9"/>
+                <constraint firstAttribute="trailing" secondItem="yG1-Kh-T73" secondAttribute="trailing" id="7dh-6b-51B"/>
+                <constraint firstItem="9cP-Vz-6Se" firstAttribute="centerY" secondItem="yG1-Kh-T73" secondAttribute="centerY" id="8iB-sZ-MWh"/>
+                <constraint firstItem="9cP-Vz-6Se" firstAttribute="centerX" secondItem="yG1-Kh-T73" secondAttribute="centerX" id="Fkl-Zd-plr"/>
+                <constraint firstItem="VZ1-ip-Vbl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LWo-p1-pBm"/>
+                <constraint firstAttribute="bottom" secondItem="VZ1-ip-Vbl" secondAttribute="bottom" id="PCS-wb-YNk"/>
+                <constraint firstItem="yG1-Kh-T73" firstAttribute="height" secondItem="9cP-Vz-6Se" secondAttribute="height" multiplier="2" id="Z1N-F6-iEi"/>
                 <constraint firstItem="9cP-Vz-6Se" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eHM-Ax-4OM"/>
-                <constraint firstAttribute="bottom" secondItem="9cP-Vz-6Se" secondAttribute="bottom" constant="120" id="tHK-2v-yum"/>
+                <constraint firstItem="VZ1-ip-Vbl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gB2-Vf-N6P"/>
+                <constraint firstAttribute="trailing" secondItem="VZ1-ip-Vbl" secondAttribute="trailing" id="m6U-cj-BN8"/>
+                <constraint firstAttribute="bottom" secondItem="9cP-Vz-6Se" secondAttribute="bottom" constant="180" id="tHK-2v-yum"/>
             </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
         </view>
     </objects>
+    <resources>
+        <image name="splash.png" width="640" height="1136"/>
+    </resources>
 </document>

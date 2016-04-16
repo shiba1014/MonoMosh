@@ -20,7 +20,7 @@
     NSString *username,*bdStr;
     NSDateFormatter *df;
     UILabel *bdLabel;
-    UITextField *tf;
+    UITextField *usernameTextField,*abilityTextField;
     MMDatePickerView *DPV;
 }
 
@@ -50,7 +50,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tv numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    return 3;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -66,20 +66,28 @@
     
     if(indexPath.row == 0){
         cell.textLabel.text = @"username";
-        if(!tf){
-            tf = [[UITextField alloc] initWithFrame:CGRectMake(100, 0, tableView.frame.size.width-100, 44)];
-            tf.delegate = self;
-            tf.clearButtonMode = UITextFieldViewModeWhileEditing;
-            [cell.contentView addSubview:tf];
+        if(!usernameTextField){
+            usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(100, 0, tableView.frame.size.width-100, 44)];
+            usernameTextField.delegate = self;
+            usernameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+            [cell.contentView addSubview:usernameTextField];
         }
-        tf.text = username;
+        usernameTextField.text = username;
         
-    }else{
+    }else if(indexPath.row == 1){
         cell.textLabel.text = @"birth day";
         if (!bdLabel) {
             bdLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 0, tableView.frame.size.width-100, 44)];
             bdLabel.text = bdStr;
             [cell.contentView addSubview:bdLabel];
+        }
+    }else{
+        cell.textLabel.text = @"ability";
+        if(!abilityTextField){
+            abilityTextField = [[UITextField alloc] initWithFrame:CGRectMake(100, 0, tableView.frame.size.width-100, 44)];
+            abilityTextField.delegate = self;
+            abilityTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+            [cell.contentView addSubview:abilityTextField];
         }
     }
     
@@ -165,6 +173,7 @@
     currentUser[@"profileImageFile"] = imageFile;
     currentUser[@"usernameForUser"] = username;
     currentUser[@"birthday"] = DPV.datePicker.date;
+    currentUser[@"ability"] = abilityTextField.text;
     [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if(succeeded){

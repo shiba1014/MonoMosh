@@ -10,10 +10,10 @@
 
 @interface MMCollectionReusableView : UICollectionReusableView{
     IBOutlet UIImageView *profileImageView;
-    IBOutlet UILabel *usernameLabel,*pointLabel,*postNumLabel;
+    IBOutlet UILabel *usernameLabel,*pointLabel,*postNumLabel,*friendNumLabel,*abilityLabel;
 }
 
-@property(weak,nonatomic) NSString *username;
+@property(weak,nonatomic) NSString *username,*postNum,*friendNum,*abilityStr;
 @property(weak,nonatomic) UIImage *profileImage;
 @property(weak,nonatomic) IBOutlet UIButton *friendNumButton,*friendButton;
 

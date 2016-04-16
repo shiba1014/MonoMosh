@@ -23,7 +23,7 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
 
 @implementation FriendPageViewController
 
-@synthesize profileImage,username,friendUserId,friendUsername,friendUser;
+@synthesize profileImage,username,friendUserId,friendUsername,friendUser,postNum,friendNum,abilityStr;
 
 //static NSString * const reuseIdentifier = @"Cell";
 
@@ -41,12 +41,12 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
     
     monoArray = [[NSMutableArray alloc] init];
     
-    [self loadMono];
-    
     if(!friendUser)
         [self getUser];
-    else
+    else{
+        [self loadMono];
         self.title = username;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,7 +57,7 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
 -(void)loadMono{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     PFQuery *query = [PFQuery queryWithClassName:@"PostObject"];
-    query.limit = 10;
+    query.limit = 9;
     [query whereKey:@"postUser" equalTo:friendUser];
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
@@ -99,7 +99,7 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
 
 -(void)loadOldMono{
     PFQuery *query = [PFQuery queryWithClassName:@"PostObject"];
-    query.limit = 10;
+    query.limit = 9;
     query.skip = monoArray.count;
     [query orderByDescending:@"createdAt"];
     [query whereKey:@"postUser" equalTo:friendUser];
@@ -147,8 +147,13 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
     if(kind == UICollectionElementKindSectionHeader){
         MMCollectionReusableView *header = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier forIndexPath:indexPath];
         [header.friendNumButton addTarget:self action:@selector(moveToFriendList) forControlEvents:UIControlEventTouchUpInside];
+        [header.friendButton addTarget:self action:@selector(friendButtonPushed) forControlEvents:UIControlEventTouchUpInside];
+        header.friendButton.hidden = YES;
         header.profileImage = profileImage;
         header.username = username;
+        header.postNum = postNum;
+        header.friendNum = friendNum;
+        header.abilityStr = abilityStr;
         [header setHeader];
         return header;
     }
@@ -175,9 +180,6 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    if(monoArray.count == 0){
-        return 9;
-    }
     return monoArray.count;
 }
 
@@ -191,6 +193,12 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
         return cell;
     NSDictionary *dic = monoArray[indexPath.row];
     cell.imageView.image = dic[@"postPhoto"];
+    if ([dic[@"postState"] isEqualToString:@"Sale"])
+        cell.stateImageView.image = nil;
+    else if([dic[@"postState"] isEqualToString:@"Negotiation"])
+        cell.stateImageView.image = [UIImage imageNamed:@"negotiationLabel"];
+    else if([dic[@"postState"] isEqualToString:@"SoldOut"])
+        cell.stateImageView.image = [UIImage imageNamed:@"soldOutLabel"];
     return cell;
 }
 
@@ -233,7 +241,11 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     detailVC.postUserId = dic[@"postUserId"];
     detailVC.postUsername = username;
     detailVC.profileImage = profileImage;
+    detailVC.postNum = postNum;
     detailVC.mono = dic[@"object"];
+    detailVC.postUser = friendUser;
+    detailVC.friendNum = friendNum;
+    detailVC.abilityStr = abilityStr;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 -(void)loadMore{
@@ -254,6 +266,9 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         friendUser = (PFUser *)object;
         username = object[@"usernameForUser"];
+        postNum = [NSString stringWithFormat:@"%@",object[@"postNum"]];
+        friendNum = [NSString stringWithFormat:@"%@",object[@"friendNum"]];
+        abilityStr = object[@"ability"];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         PFFile *imageFile = object[@"profileImageFile"];
         [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error){
@@ -268,5 +283,8 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     }];
 }
 
+-(void)friendButtonPushed{
+    NSLog(@"yeah");
+}
 
 @end

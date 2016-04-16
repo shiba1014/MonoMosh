@@ -26,7 +26,6 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerNib:[UINib nibWithNibName:@"MMCollectionViewCell" bundle:nil]
           forCellWithReuseIdentifier:cellIdentifier];
@@ -43,6 +42,14 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
     if(![PFUser currentUser]){
         SignupViewController *SVC = [[SignupViewController alloc] init];
         [self presentViewController:SVC animated:YES completion:nil];
+    }else{
+        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                        UIUserNotificationTypeBadge |
+                                                        UIUserNotificationTypeSound);
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                                 categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
     }
 
     monoArray = [[NSMutableArray alloc] init];
@@ -73,6 +80,7 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
                 dic[@"postUserId"] = postUser.objectId;
                 dic[@"postId"] = object.objectId;
                 dic[@"postDiscription"] = object[@"postDiscription"];
+                dic[@"postState"] = object[@"postState"];
                 [monoArray addObject:dic];
                 PFFile *imageFile = object[@"postPhoto"];
                 [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
@@ -110,6 +118,7 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
                 dic[@"postUserId"] = postUser.objectId;
                 dic[@"postId"] = object.objectId;
                 dic[@"postDiscription"] = object[@"postDiscription"];
+                dic[@"postState"] = object[@"postState"];
                 [monoArray addObject:dic];
                 PFFile *imageFile = object[@"postPhoto"];
                 [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
@@ -150,6 +159,7 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
                 dic[@"postUserId"] = postUser.objectId;
                 dic[@"postId"] = object.objectId;
                 dic[@"postDiscription"] = object[@"postDiscription"];
+                dic[@"postState"] = object[@"postState"];
                 [monoArray addObject:dic];
                 PFFile *imageFile = object[@"postPhoto"];
                 [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
@@ -165,7 +175,6 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
                 }];
                 [self.collectionView reloadData];
             }
-            moreButton.hidden = NO;
         }else{
             NSLog(@"Errpr:%@",error);
         }
@@ -185,9 +194,6 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    if(monoArray.count == 0){
-        return 10;
-    }
     return monoArray.count;
 }
 
@@ -201,6 +207,13 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
     NSDictionary *dic = monoArray[indexPath.row];
     cell.imageView.image = dic[@"postPhoto"];
     cell.monoName.text = dic[@"postName"];
+    
+    if ([dic[@"postState"] isEqualToString:@"Sale"])
+        cell.stateImageView.image = nil;
+    else if([dic[@"postState"] isEqualToString:@"Negotiation"])
+        cell.stateImageView.image = [UIImage imageNamed:@"negotiationLabel"];
+    else if([dic[@"postState"] isEqualToString:@"SoldOut"])
+        cell.stateImageView.image = [UIImage imageNamed:@"soldOutLabel"];
     return cell;
 }
 
@@ -244,6 +257,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     detailVC.postId = dic[@"postId"];
     detailVC.postUserId = dic[@"postUserId"];
     detailVC.mono = dic[@"object"];
+    detailVC.postState = dic[@"postState"];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 

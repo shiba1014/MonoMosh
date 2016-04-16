@@ -12,5 +12,6 @@
 @interface WantListViewController : UITableViewController
 
 @property NSMutableArray *wantListArray;
+@property NSString *postId,*postName;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "NotifViewController.h"
 #import "MMTableViewCell.h"
+#import "FriendPageViewController.h"
+#import "DetailViewController.h"
 
 @interface NotifViewController ()
 
@@ -19,24 +21,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
     table.dataSource = self;
     table.delegate = self;
     
-    notifArray = [NSMutableArray array];
+    notifArray = [[NSArray alloc] init];
 
-    profileImage = [UIImage imageNamed:@"profileImage.png"];
-    
-    userName = @"わんだ";
-    monoName = @"犬";
-    NSString *wantText = [NSString stringWithFormat:@"%@さんが%@を欲しがっています",userName,monoName];
-   // NSString *pointText = [NSString stringWithFormat:@"交渉成立！%dポイントゲットしました",point];
-  
-    NSDictionary *notifDic = [NSDictionary dictionaryWithObjectsAndKeys:
-                         profileImage, @"profileImage",
-                         wantText, @"labelText",
-                         nil];
-
-    [notifArray addObject:notifDic];
+//    profileImage = [UIImage imageNamed:@"profileImage.png"];
+//    
+//    userName = @"わんだ";
+//    monoName = @"犬";
+//    NSString *wantText = [NSString stringWithFormat:@"%@さんが%@を欲しがっています",userName,monoName];
+//   // NSString *pointText = [NSString stringWithFormat:@"交渉成立！%dポイントゲットしました",point];
+//  
+//    NSDictionary *notifDic = [NSDictionary dictionaryWithObjectsAndKeys:
+//                         profileImage, @"profileImage",
+//                         wantText, @"labelText",
+//                         nil];
+//
+//    [notifArray addObject:notifDic];
+    notifArray = [[NSUserDefaults standardUserDefaults] arrayForKey:@"notifArray"];
  
     self.title = @"Notif";
     
@@ -69,12 +74,30 @@
     static NSString *cellIdentifier = @"MMTableViewCell";
     MMTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    cell.profileImage = [UIImage imageNamed:@"profileImage.png"];
-    cell.username = @"username";
+    NSDictionary *dic = notifArray[indexPath.row];
+    
+    cell.profileImage = dic[@"image"];
+    cell.username = dic[@"alertStr"];
     
     [cell setCell];
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSDictionary *dic = notifArray[indexPath.row];
+    if([dic[@"type"] isEqualToString:@"want"]){
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FriendPage" bundle:[NSBundle mainBundle]];
+        FriendPageViewController *friendPageVC = [storyboard instantiateInitialViewController];
+        friendPageVC.friendUserId = dic[@"userId"];
+        [self.navigationController pushViewController:friendPageVC animated:YES];
+    }else if([dic[@"type"] isEqualToString:@"negotiation"]){
+        DetailViewController *detailVC = [[DetailViewController alloc] init];
+        detailVC.postId = dic[@"postId"];
+        detailVC.postUserId = dic[@"userId"];
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
 }
 /*
  #pragma mark - Navigation

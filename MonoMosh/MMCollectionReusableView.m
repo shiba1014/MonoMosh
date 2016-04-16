@@ -14,11 +14,17 @@
     // Initialization code
     profileImageView.image = self.profileImage;
     usernameLabel.text = self.username;
+    postNumLabel.text = self.postNum;
+    friendNumLabel.text = self.friendNum;
+    abilityLabel.text = self.abilityStr;
 }
 
 -(void)setHeader{
     profileImageView.image = self.profileImage;
     usernameLabel.text = self.username;
+    postNumLabel.text = self.postNum;
+    friendNumLabel.text = self.friendNum;
+    abilityLabel.text = self.abilityStr;
 }
 
 @end

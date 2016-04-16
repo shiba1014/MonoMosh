@@ -35,63 +35,67 @@
     
     FBSDKLoginManager *manager = [[FBSDKLoginManager alloc] init];
     
-//    [manager logInWithReadPermissions:@[@"public_profile",@"user_birthday",@"user_friends"] handler:
-//     ^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-
-    [PFFacebookUtils logInWithPermissions:@[@"public_profile",@"user_birthday",@"user_friends"] block:^(PFUser * _Nullable user, NSError * _Nullable error) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if(!user){
-            NSLog(@"error%@",error);
-        }else if (user.isNew){
-            NSLog(@"signup with facebook");
-            
-            UIAlertController *ac =
-            [UIAlertController alertControllerWithTitle:nil
-                                                message:@"登録が完了いたしました"
-                                         preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction *okAction =
-            [UIAlertAction actionWithTitle:@"OK"
-                                     style:UIAlertActionStyleDefault
-                                   handler:^(UIAlertAction * action) {
-                                       NSLog(@"OK button tapped.");
-                                       InitialSettingViewController *ISVC = [[InitialSettingViewController alloc] init];
-                                       [self presentViewController:ISVC animated:YES completion:nil];
-                                   }];
-            
-            [ac addAction:okAction];
-            [self presentViewController:ac animated:YES completion:nil];
-            
-        }else{
-            NSLog(@"success login  with facebook");
-            
-            UIAlertController *ac =
-            [UIAlertController alertControllerWithTitle:nil
-                                                message:@"ログインが完了いたしました"
-                                         preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction *okAction =
-            [UIAlertAction actionWithTitle:@"OK"
-                                     style:UIAlertActionStyleDefault
-                                   handler:^(UIAlertAction * action) {
-                                       NSLog(@"OK button tapped.");
-                                       [self dismissViewControllerAnimated:YES completion:nil];
-                                   }];
-            
-            [ac addAction:okAction];
-            [self presentViewController:ac animated:YES completion:nil];
-        }
-    }];
-//     }];
+    [manager logInWithReadPermissions:@[@"public_profile",@"user_birthday",@"user_friends"] handler:
+     ^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+         
+         [PFFacebookUtils logInWithPermissions:@[@"public_profile",@"user_birthday",@"user_friends"] block:^(PFUser * _Nullable user, NSError * _Nullable error) {
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
+             if(!user){
+                 NSLog(@"error%@",error);
+             }else if (user.isNew){
+                 NSLog(@"signup with facebook");
+                 
+                 UIAlertController *ac =
+                 [UIAlertController alertControllerWithTitle:nil
+                                                     message:@"登録が完了いたしました"
+                                              preferredStyle:UIAlertControllerStyleAlert];
+                 
+                 UIAlertAction *okAction =
+                 [UIAlertAction actionWithTitle:@"OK"
+                                          style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * action) {
+                                            NSLog(@"OK button tapped.");
+                                            InitialSettingViewController *ISVC = [[InitialSettingViewController alloc] init];
+                                            [self presentViewController:ISVC animated:YES completion:nil];
+                                        }];
+                 
+                 [ac addAction:okAction];
+                 [self presentViewController:ac animated:YES completion:nil];
+                 
+             }else{
+                 NSLog(@"success login  with facebook");
+                 
+                 UIAlertController *ac =
+                 [UIAlertController alertControllerWithTitle:nil
+                                                     message:@"ログインが完了いたしました"
+                                              preferredStyle:UIAlertControllerStyleAlert];
+                 
+                 UIAlertAction *okAction =
+                 [UIAlertAction actionWithTitle:@"OK"
+                                          style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * action) {
+                                            NSLog(@"OK button tapped.");
+                                            [self dismissViewControllerAnimated:YES completion:nil];
+                                        }];
+                 
+                 [ac addAction:okAction];
+                 [self presentViewController:ac animated:YES completion:nil];
+                 NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+                 PFUser *user = [PFUser currentUser];
+                 [ud setObject:user[@"wantMonoArray"] forKey:@"wantMonoArray"];
+                 [ud synchronize];
+             }
+         }];
+     }];
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

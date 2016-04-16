@@ -44,26 +44,43 @@
     // TabBarController の持つ ViewController の配列に代入
     self.viewControllers = viewControllers;
     
-/*
     for(UITabBarItem *item in self.tabBar.items){
-        if([item.title isEqualToString:@"TimeLine"]){
+        if([item.title isEqualToString:@"Timeline"]){
             
-            item.image = [[UIImage imageNamed:@"homeTabImage"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-            item.selectedImage = [UIImage imageNamed:@"homeTabImage"];
+            item.image = [[UIImage imageNamed:@"timelineTabIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
             
-        }else if ([item.title isEqualToString:@"Camera"]){
+        }else if([item.title isEqualToString:@"Search"]){
             
-            item.image = [[UIImage imageNamed:@"studyTabImage"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        }
+        else if ([item.title isEqualToString:@"Camera"]){
             
-        }else if ([item.title isEqualToString:@"MyPage"]){
+            item.image = [[UIImage imageNamed:@"cameraTabIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
             
-            item.image = [[UIImage imageNamed:@"studyTabImage"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        }else if ([item.title isEqualToString:@"Mypage"]){
+            
+            item.image = [[UIImage imageNamed:@"mypageTabIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         }else {
-            item.image = [[UIImage imageNamed:@"notifTabImage"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-            item.selectedImage = [UIImage imageNamed:@"notifTabImage"];
+            item.image = [[UIImage imageNamed:@"notifTabIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         }
     }
-    */
+ 
+    
+    //タブ選択時のフォントとカラー
+    NSDictionary *selectedAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:10],
+                                         NSForegroundColorAttributeName : [UIColor whiteColor]};
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:selectedAttributes
+                                             forState:UIControlStateSelected];
+    
+    //通常時のフォントとカラー
+    NSDictionary *attributesNormal = @{NSFontAttributeName : [UIFont systemFontOfSize:10],
+                                       NSForegroundColorAttributeName : [UIColor whiteColor]};
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:attributesNormal
+                                             forState:UIControlStateNormal];
+    
+    [UITabBar appearance].barTintColor = [UIColor colorWithRed:0.227 green:0.239 blue:0.231 alpha:1.000];
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"selectedIcon"]];
 }
 
 - (void)didReceiveMemoryWarning {

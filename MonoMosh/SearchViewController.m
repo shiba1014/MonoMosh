@@ -25,12 +25,16 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
     UISearchBar *searchBar = [[UISearchBar alloc] init];
     searchBar.tintColor = [UIColor darkGrayColor];
     searchBar.placeholder = @"Search";
     searchBar.keyboardType = UIKeyboardTypeDefault;
     searchBar.showsCancelButton = YES;
     searchBar.delegate = self;
+    searchBar.tintColor = [UIColor whiteColor];
     
     // UINavigationBar上に、UISearchBarを追加
     self.navigationItem.titleView = searchBar;
@@ -52,6 +56,7 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
     table.hidden = YES;
     
     [segmented addTarget:self action:@selector(segmentedChanged:) forControlEvents:UIControlEventValueChanged];
+    segmented.tintColor = [UIColor colorWithRed:0.106 green:0.506 blue:0.243 alpha:1.000];
     
     indicator = [[UIActivityIndicatorView alloc] init];
     indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
@@ -107,6 +112,7 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
                 dic[@"postUserId"] = postUser.objectId;
                 dic[@"postId"] = object.objectId;
                 dic[@"postDiscription"] = object[@"postDiscription"];
+                dic[@"postState"] = object[@"postState"];
                 [resultArray addObject:dic];
                 PFFile *imageFile = object[@"postPhoto"];
                 [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
@@ -139,6 +145,7 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
                 NSMutableDictionary *dic = [NSMutableDictionary dictionary];
                 dic[@"user"] = user;
                 dic[@"usernameForUser"] = user[@"usernameForUser"];
+                dic[@"ability"] = user[@"ability"];
                 [resultArray addObject:dic];
                 PFFile *imageFile = user[@"profileImageFile"];
                 [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
@@ -189,6 +196,14 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
     NSDictionary *dic = resultArray[indexPath.row];
     cell.imageView.image = dic[@"postPhoto"];
     cell.monoName.text = dic[@"postName"];
+
+    if ([dic[@"postState"] isEqualToString:@"Sale"])
+        cell.stateImageView.image = nil;
+    else if([dic[@"postState"] isEqualToString:@"Negotiation"])
+        cell.stateImageView.image = [UIImage imageNamed:@"negotiationLabel"];
+    else if([dic[@"postState"] isEqualToString:@"SoldOut"])
+        cell.stateImageView.image = [UIImage imageNamed:@"soldOutLabel"];
+    
     return cell;
 }
 
@@ -232,6 +247,8 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     detailVC.postId = dic[@"postId"];
     detailVC.postUserId = dic[@"postUserId"];
     detailVC.mono = dic[@"object"];
+    detailVC.postState = dic[@"postState"];
+    detailVC.abilityStr = dic[@"ability"];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
@@ -287,6 +304,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
         MyPageViewController *myPageVC = myPageNaviVC.viewControllers[0];
         myPageVC.profileImage = dic[@"profileImage"];
         myPageVC.username = dic[@"usernameForUser"];
+        myPageVC.abilityStr = dic[@"abilityStr"];
         [self.navigationController pushViewController:myPageVC animated:YES];
     }else{
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FriendPage" bundle:[NSBundle mainBundle]];
@@ -294,6 +312,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
         friendPageVC.profileImage = dic[@"profileImage"];
         friendPageVC.friendUser = user;
         friendPageVC.username = user[@"usernameForUser"];
+        friendPageVC.abilityStr = dic[@"abilityStr"];
         [self.navigationController pushViewController:friendPageVC animated:YES];
     }
 }

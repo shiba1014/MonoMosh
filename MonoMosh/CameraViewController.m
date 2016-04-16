@@ -9,6 +9,8 @@
 #import "CameraViewController.h"
 #import "TimeLineViewController.h"
 #import <Parse/Parse.h>
+#import "DetailViewController.h"
+#import "MyPageViewController.h"
 
 @interface CameraViewController ()
 @end
@@ -20,7 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     hud = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:hud];
     hud.delegate = self;
@@ -92,7 +93,7 @@
     
     UIAlertAction *okButton = [UIAlertAction
                                actionWithTitle:@"OK"
-                               style:UIAlertActionStyleDefault
+                               style:UIAlertActionStyleDestructive
                                handler:^(UIAlertAction * action)
                                {
                                    //Handel your yes please button action here
@@ -109,13 +110,13 @@
                                }];
     UIAlertAction *cancelButton = [UIAlertAction
                                    actionWithTitle:@"Cancel"
-                                   style:UIAlertActionStyleDestructive
+                                   style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * _Nonnull action) {
                                        
                                    }];
     
-    [alert addAction:cancelButton];
     [alert addAction:okButton];
+    [alert addAction:cancelButton];
     [self presentViewController:alert animated:YES completion:nil];
 }
 
@@ -172,6 +173,7 @@
     object[@"postName"] = nameTextField.text;
     object[@"postDiscription"] = detailTextView.text;
     object[@"postUser"] = [PFUser currentUser];
+    object[@"postState"] = @"Sale";
     NSData *imageData = UIImagePNGRepresentation(imageView.image);
     PFFile *imageFile = [PFFile fileWithName:@"monoPhoto" data:imageData];
     object[@"postPhoto"] = imageFile;
@@ -197,9 +199,15 @@
                                            
                                        }];
             
-            
             [alert addAction:okButton];
+
             [self presentViewController:alert animated:YES completion:nil];
+            
+            NSNumber *number = [PFUser currentUser][@"postNum"];
+            int postNum = [number intValue];
+            postNum++;
+            [PFUser currentUser][@"postNum"] = [[NSNumber alloc] initWithInt:postNum];
+            [[PFUser currentUser] saveInBackground];
             
             imageView.image = nil;
             nameTextField.text = nil;
@@ -225,7 +233,31 @@
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
                     });
-                    
+                    NSArray *viewControllers = [self.navigationController viewControllers];
+                    DetailViewController *detailVC = [viewControllers objectAtIndex:viewControllers.count - 2];
+                    [detailVC changePostWithName:nameTextField.text andDiscription:detailTextView.text];
+                    UIViewController *viewController = [viewControllers objectAtIndex:viewControllers.count -3];
+                    if([viewController isMemberOfClass:[TimeLineViewController class]])
+                    {
+                        TimeLineViewController *timelineVC = (TimeLineViewController *)viewController;
+                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"postId == %@",postId];
+                        NSMutableDictionary *dic = [[[timelineVC.monoArray filteredArrayUsingPredicate:predicate] firstObject] mutableCopy];
+                        NSUInteger index = [timelineVC.monoArray indexOfObject:dic];
+                        dic[@"postName"] = nameTextField.text;
+                        dic[@"postDiscription"] = detailTextView.text;
+                        timelineVC.monoArray[index] = dic;
+                        
+                    }else if([viewController isMemberOfClass:[MyPageViewController class]])
+                    {
+                        MyPageViewController *mypageVC = (MyPageViewController *)viewController;
+                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"postId == %@",postId];
+                        NSMutableDictionary *dic = [[[mypageVC.monoArray filteredArrayUsingPredicate:predicate] firstObject] mutableCopy];
+                        NSUInteger index = [mypageVC.monoArray indexOfObject:dic];
+                        dic[@"postName"] = nameTextField.text;
+                        dic[@"postDiscription"] = detailTextView.text;
+                        mypageVC.monoArray[index] = dic;
+
+                    }
                     UIAlertController *alert=   [UIAlertController
                                                  alertControllerWithTitle:@"Completed!"
                                                  message:@"変更を保存しました"

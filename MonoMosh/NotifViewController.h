@@ -10,7 +10,7 @@
 
 @interface NotifViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
     
-    NSMutableArray *notifArray, *imgArray, *labelArray;
+    NSArray *notifArray;
     UIImage *profileImage;
     NSString *userName, *monoName;
     int point;

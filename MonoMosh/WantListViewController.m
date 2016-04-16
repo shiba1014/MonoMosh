@@ -11,6 +11,9 @@
 #import "MMTableViewCell.h"
 #import <Parse/Parse.h>
 #import "MBProgressHUD.h"
+#import "DetailViewController.h"
+#import "TimeLineViewController.h"
+#import "MyPageViewController.h"
 
 @interface WantListViewController ()
 
@@ -18,7 +21,7 @@
 
 @implementation WantListViewController
 
-@synthesize wantListArray;
+@synthesize wantListArray,postId,postName;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -84,28 +87,78 @@
     
     NSString *value = dic[@"value"];
     if([value isEqualToString:@"StarBucks"])
-        cell.valueImageView.backgroundColor = [UIColor magentaColor];
+        cell.valueImageView.image = [UIImage imageNamed:@"starbucksIcon"];
     else if([value isEqualToString:@"Lunch"])
         cell.valueImageView.backgroundColor = [UIColor cyanColor];
     else if([value isEqualToString:@"Ability"])
-        cell.valueImageView.backgroundColor = [UIColor yellowColor];
+        cell.valueImageView.image = [UIImage imageNamed:@"abilityIcon"];
     
     [cell setCell];
     
     return cell;
 }
 
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //TODO:タップ後どうするか
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FriendPage" bundle:[NSBundle mainBundle]];
-    FriendPageViewController *friendPageVC = [storyboard instantiateInitialViewController];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UIAlertController *action = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
     NSDictionary *dic = wantListArray[indexPath.row];
     PFUser *friendUser = dic[@"user"];
-    friendPageVC.profileImage = dic[@"profileImage"];
-    friendPageVC.friendUser = friendUser;
-    friendPageVC.username = friendUser[@"usernameForUser"];
-    [self.navigationController pushViewController:friendPageVC animated:YES];
+    
+    [action addAction:[UIAlertAction actionWithTitle:@"Move to this user's page" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"FriendPage" bundle:[NSBundle mainBundle]];
+        FriendPageViewController *friendPageVC = [storyboard instantiateInitialViewController];
+        friendPageVC.profileImage = dic[@"profileImage"];
+        friendPageVC.friendUser = friendUser;
+        friendPageVC.username = friendUser[@"usernameForUser"];
+        friendPageVC.postNum = [NSString stringWithFormat:@"%@",friendUser[@"postNum"]];
+        friendPageVC.friendNum = [NSString stringWithFormat:@"%@",friendUser[@"friendNum"]];
+        friendPageVC.abilityStr = friendUser[@"abilityStr"];
+        [self.navigationController pushViewController:friendPageVC animated:YES];
+    }]];
+    
+    [action addAction:[UIAlertAction actionWithTitle:@"Give Mono to this user" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.navigationController popViewControllerAnimated:YES];
+        NSArray *viewControllers = [self.navigationController viewControllers];
+        DetailViewController *detailVC = [viewControllers objectAtIndex:[viewControllers count]-1];
+        [detailVC giveMono];
+        UIViewController *viewController = [viewControllers objectAtIndex:viewControllers.count -2];
+        if([viewController isMemberOfClass:[TimeLineViewController class]]){
+            TimeLineViewController *timelineVC = (TimeLineViewController *)viewController;
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"postId == %@",postId];
+            NSMutableDictionary *dic = [[[timelineVC.monoArray filteredArrayUsingPredicate:predicate] firstObject] mutableCopy];
+            NSUInteger index = [timelineVC.monoArray indexOfObject:dic];
+            dic[@"postState"] = @"Negotiation";
+            timelineVC.monoArray[index] = dic;
+            [timelineVC loadMono];
+
+        }else if([viewController isMemberOfClass:[MyPageViewController class]]){
+            MyPageViewController *mypageVC = (MyPageViewController *)viewController;
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"postId == %@",postId];
+            NSMutableDictionary *dic = [[[mypageVC.monoArray filteredArrayUsingPredicate:predicate] firstObject] mutableCopy];
+            NSUInteger index = [mypageVC.monoArray indexOfObject:dic];
+            dic[@"postState"] = @"Negotiation";
+            mypageVC.monoArray[index] = dic;
+            [mypageVC loadMono];
+        }
+        
+        PFPush *push = [[PFPush alloc] init];
+        NSString *channel = [NSString stringWithFormat:@"U%@",friendUser.objectId];
+        NSString *message = [NSString stringWithFormat:@"You get a bargaining right of %@",postName];
+        NSDictionary *data = @{
+                               @"alert":message,
+                               @"userId":[PFUser currentUser].objectId,
+                               @"postId":postId,
+                               @"content-available": @1,
+                               @"type":@"negotiation"
+                               };
+        [push setChannel:channel];
+        [push setData:data];
+        [push sendPushInBackground];
+    }]];
+    
+    [action addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:action animated:YES completion:nil];
 }
 
 @end

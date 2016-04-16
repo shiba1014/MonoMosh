@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -30,16 +31,25 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jmi-Mc-Ux5">
+                        <rect key="frame" x="150" y="0.0" width="150" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="jmi-Mc-Ux5" secondAttribute="height" multiplier="15:8" id="uSS-si-grO"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
                 <constraint firstItem="t3F-S8-ucA" firstAttribute="centerY" secondItem="dof-6q-hRl" secondAttribute="centerY" id="8CE-Ln-uwF"/>
+                <constraint firstItem="jmi-Mc-Ux5" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.5" id="9ZQ-jU-aTy"/>
                 <constraint firstAttribute="bottom" secondItem="t3F-S8-ucA" secondAttribute="bottom" constant="10" id="Aet-hL-kgt"/>
                 <constraint firstItem="awd-pv-7z2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="INa-Iu-bEV"/>
                 <constraint firstAttribute="bottom" secondItem="dof-6q-hRl" secondAttribute="bottom" id="U4y-Bb-bRi"/>
                 <constraint firstAttribute="trailing" secondItem="t3F-S8-ucA" secondAttribute="trailing" constant="10" id="Vim-rl-FHz"/>
                 <constraint firstItem="awd-pv-7z2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cfp-qn-HnS"/>
+                <constraint firstItem="jmi-Mc-Ux5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hGd-mM-Iqc"/>
+                <constraint firstAttribute="trailing" secondItem="jmi-Mc-Ux5" secondAttribute="trailing" id="icN-hB-ygg"/>
                 <constraint firstAttribute="trailing" secondItem="awd-pv-7z2" secondAttribute="trailing" id="jDO-wZ-Zpg"/>
                 <constraint firstAttribute="trailing" secondItem="dof-6q-hRl" secondAttribute="trailing" id="k0q-bI-43H"/>
                 <constraint firstItem="dof-6q-hRl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uqm-ZG-xET"/>
@@ -51,6 +61,7 @@
                 <outlet property="imageView" destination="awd-pv-7z2" id="oYf-Nt-pgj"/>
                 <outlet property="monoName" destination="t3F-S8-ucA" id="Q3o-YD-u04"/>
                 <outlet property="shadowImage" destination="dof-6q-hRl" id="24R-AI-7e4"/>
+                <outlet property="stateImageView" destination="jmi-Mc-Ux5" id="N3k-Bs-x0D"/>
             </connections>
             <point key="canvasLocation" x="485" y="183"/>
         </collectionViewCell>

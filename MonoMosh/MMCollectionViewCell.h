@@ -10,6 +10,6 @@
 
 @interface MMCollectionViewCell : UICollectionViewCell
 
-@property(weak, nonatomic) IBOutlet UIImageView *imageView,*shadowImage;
+@property(weak, nonatomic) IBOutlet UIImageView *imageView,*shadowImage,*stateImageView;
 @property(weak, nonatomic) IBOutlet UILabel *monoName;
 @end
