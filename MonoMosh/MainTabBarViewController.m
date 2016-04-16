@@ -46,24 +46,17 @@
     
     for(UITabBarItem *item in self.tabBar.items){
         if([item.title isEqualToString:@"Timeline"]){
-            
             item.image = [[UIImage imageNamed:@"timelineTabIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-            
         }else if([item.title isEqualToString:@"Search"]){
-            
-        }
-        else if ([item.title isEqualToString:@"Camera"]){
-            
+            item.image = [[UIImage imageNamed:@"searchTabIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        }else if ([item.title isEqualToString:@"Camera"]){
             item.image = [[UIImage imageNamed:@"cameraTabIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-            
         }else if ([item.title isEqualToString:@"Mypage"]){
-            
             item.image = [[UIImage imageNamed:@"mypageTabIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         }else {
             item.image = [[UIImage imageNamed:@"notifTabIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         }
     }
- 
     
     //タブ選択時のフォントとカラー
     NSDictionary *selectedAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:10],

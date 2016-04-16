@@ -89,7 +89,7 @@
     if([value isEqualToString:@"StarBucks"])
         cell.valueImageView.image = [UIImage imageNamed:@"starbucksIcon"];
     else if([value isEqualToString:@"Lunch"])
-        cell.valueImageView.backgroundColor = [UIColor cyanColor];
+        cell.valueImageView.image = [UIImage imageNamed:@"lunchIcon"];
     else if([value isEqualToString:@"Ability"])
         cell.valueImageView.image = [UIImage imageNamed:@"abilityIcon"];
     
