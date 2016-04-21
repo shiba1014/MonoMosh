@@ -47,7 +47,7 @@
                  
                  UIAlertController *ac =
                  [UIAlertController alertControllerWithTitle:nil
-                                                     message:@"登録が完了いたしました"
+                                                     message:@"Succeess to sign up"
                                               preferredStyle:UIAlertControllerStyleAlert];
                  
                  UIAlertAction *okAction =
@@ -67,7 +67,7 @@
                  
                  UIAlertController *ac =
                  [UIAlertController alertControllerWithTitle:nil
-                                                     message:@"ログインが完了いたしました"
+                                                     message:@"Succeess to log in"
                                               preferredStyle:UIAlertControllerStyleAlert];
                  
                  UIAlertAction *okAction =

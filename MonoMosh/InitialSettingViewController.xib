@@ -30,10 +30,10 @@
                     </constraints>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8IQ-Qt-aEP">
-                    <rect key="frame" x="0.0" y="254" width="414" height="88"/>
+                    <rect key="frame" x="0.0" y="254" width="414" height="132"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="88" id="Jl5-Pz-luX"/>
+                        <constraint firstAttribute="height" constant="132" id="Jl5-Pz-luX"/>
                     </constraints>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdh-ng-YMz">

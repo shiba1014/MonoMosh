@@ -152,6 +152,8 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
         header.profileImage = profileImage;
         header.username = username;
         header.postNum = postNum;
+        if([friendNum isEqualToString:@"(null)"])
+            friendNum = @"0";
         header.friendNum = friendNum;
         header.abilityStr = abilityStr;
         [header setHeader];

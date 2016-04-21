@@ -151,6 +151,8 @@ static NSString *cellIdentifier = @"MMCollectionViewCell";
         header.profileImage = profileImage;
         header.friendButton.hidden = YES;
         header.postNum = postNum;
+        if([friendNum isEqualToString:@"(null)"])
+            friendNum = @"0";
         header.friendNum = friendNum;
         header.abilityStr = abilityStr;
         [header.friendNumButton addTarget:self action:@selector(moveToFriendList) forControlEvents:UIControlEventTouchUpInside];
@@ -268,11 +270,14 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 
 -(void)getUser{
     PFUser *user = [PFUser currentUser];
-    user[@"ability"] = @"グインシールあげます";
+    user[@"usernameForUser"] = @"Satsuki Hashiba";
     [user saveInBackground];
     username = user[@"usernameForUser"];
     postNum = [NSString stringWithFormat:@"%@",user[@"postNum"]];
     friendNum = [NSString stringWithFormat:@"%@",user[@"friendNum"]];
+    if(!friendNum){
+        NSLog(@"yeah");
+    }
     abilityStr = user[@"ability"];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     PFFile *imageFile = user[@"profileImageFile"];

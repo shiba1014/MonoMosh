@@ -66,24 +66,26 @@
     MMTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     NSMutableDictionary *dic = wantListArray[indexPath.row];
-    PFUser *user = dic[@"user"];
-    PFFile *file = user[@"profileImageFile"];
-    [file getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
-        if(!error){
-            UIImage *profileImage = [UIImage imageWithData:data];
-            cell.profileImage = profileImage;
-            [cell setCell];
-            dic[@"profileImage"] = profileImage;
-            
-            if(indexPath.row == wantListArray.count - 1)
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
-            
-        }else{
-            NSLog(@"%@",error);
-        }
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"objectId" equalTo:dic[@"userId"]];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable user, NSError * _Nullable error) {
+        cell.username = user[@"usernameForUser"];
+        PFFile *file = user[@"profileImageFile"];
+        [file getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+            if(!error){
+                UIImage *profileImage = [UIImage imageWithData:data];
+                cell.profileImage = profileImage;
+                [cell setCell];
+                dic[@"profileImage"] = profileImage;
+                
+                if(indexPath.row == wantListArray.count - 1)
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                
+            }else{
+                NSLog(@"%@",error);
+            }
+        }];
     }];
-    cell.profileImage = [UIImage imageNamed:@"profileImage.png"];
-    cell.username = user[@"usernameForUser"];
     
     NSString *value = dic[@"value"];
     if([value isEqualToString:@"StarBucks"])

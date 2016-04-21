@@ -180,7 +180,7 @@
             NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
             [ud setObject:DPV.datePicker.date forKey:@"birthday"];
             [ud synchronize];
-            [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+            [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
         }else{
             NSLog(@"saveError:%@",error);
         }

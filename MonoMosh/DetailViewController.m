@@ -174,15 +174,20 @@
 }
 
 - (void)deleteButtonPushed {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"この投稿を削除します。よろしいですか?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"Are you sure to delete this post?" preferredStyle:UIAlertControllerStyleAlert];
     
     [alert addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [mono deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if(succeeded){
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
-                UIAlertController *finishAlert = [UIAlertController alertControllerWithTitle:@"" message:@"投稿を削除しました" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *finishAlert = [UIAlertController alertControllerWithTitle:@"" message:@"Delete this post" preferredStyle:UIAlertControllerStyleAlert];
                 [finishAlert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    NSNumber *number = [PFUser currentUser][@"postNum"];
+                    int num = [number intValue];
+                    num--;
+                    [PFUser currentUser][@"postNum"] = [[NSNumber alloc] initWithInt:num];
+                    [[PFUser currentUser] saveInBackground];
                     NSArray *viewControllers = [self.navigationController viewControllers];
                     UIViewController *viewController = [viewControllers objectAtIndex:viewControllers.count -1];
                     if([viewController isMemberOfClass:[TimeLineViewController class]])
@@ -369,9 +374,9 @@
 }
 
 -(void)doneButtonPushed{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"モノを交渉成立とします。よろしいですか?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Are you sure to done this mono?" preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        stateImageView.backgroundColor = [UIColor magentaColor];
+        stateImageView.image = [UIImage imageNamed:@"soldOutLabel"];
         doneButton.hidden = YES;
         undoneButton.hidden = YES;
         NSArray *viewControllers = [self.navigationController viewControllers];
@@ -415,10 +420,10 @@
 }
 
 -(void)undoneButtonPushed{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"モノを交渉不成立とします。よろしいですか? \n(不成立になると再び受取手を募集します)" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Are you sure to undone this mono? \n(This mono will be sold again)" preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //TODO:wantListを初期化するかどうか
-        stateImageView.backgroundColor = [UIColor cyanColor];
+        stateImageView.image = nil;
         doneButton.hidden = YES;
         undoneButton.hidden = YES;
         wantListButton.hidden = NO;
@@ -431,7 +436,7 @@
             NSUInteger index = [timelineVC.monoArray indexOfObject:dic];
             dic[@"postState"] = @"Sale";
             timelineVC.monoArray[index] = dic;
-            [timelineVC loadMono];
+//            [timelineVC loadMono];
         }else if([viewController isMemberOfClass:[MyPageViewController class]]){
             MyPageViewController *mypageVC = (MyPageViewController *)viewController;
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"postId == %@",postId];
@@ -439,9 +444,9 @@
             NSUInteger index = [mypageVC.monoArray indexOfObject:dic];
             dic[@"postState"] = @"Sale";
             mypageVC.monoArray[index] = dic;
-            [mypageVC loadMono];
+//            [mypageVC loadMono];
         }
-        mono[@"postState"] = @"SoldOut";
+        mono[@"postState"] = @"Sale";
         [mono saveInBackground];
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];

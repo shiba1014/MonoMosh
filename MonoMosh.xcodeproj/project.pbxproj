@@ -14,7 +14,6 @@
 		4E050A131C926886005D849C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E050A111C926886005D849C /* FBSDKShareKit.framework */; };
 		4E1928901CC20866009269D4 /* selectedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E19288B1CC20866009269D4 /* selectedIcon.png */; };
 		4E1928991CC20C0F009269D4 /* abilityIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1928931CC20C0F009269D4 /* abilityIcon.png */; };
-		4E19289A1CC20C0F009269D4 /* SignUpBackgroundImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E1928941CC20C0F009269D4 /* SignUpBackgroundImage.jpg */; };
 		4E19289B1CC20C0F009269D4 /* starbucksIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1928951CC20C0F009269D4 /* starbucksIcon.png */; };
 		4E19289C1CC20C0F009269D4 /* doneButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1928961CC20C0F009269D4 /* doneButton.png */; };
 		4E19289E1CC20C0F009269D4 /* initialSettingBackgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1928981CC20C0F009269D4 /* initialSettingBackgroundImage.png */; };
@@ -22,7 +21,6 @@
 		4E1928A31CC21363009269D4 /* negotiationLabel.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1928A21CC21363009269D4 /* negotiationLabel.png */; };
 		4E1928A61CC21512009269D4 /* wantListButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1928A41CC21512009269D4 /* wantListButton.png */; };
 		4E1928A91CC219ED009269D4 /* undoneButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1928A81CC219ED009269D4 /* undoneButton.png */; };
-		4E1928AD1CC21E05009269D4 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1928AC1CC21E05009269D4 /* splash.png */; };
 		4E1928B31CC230C5009269D4 /* mypageTabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1928AF1CC230C5009269D4 /* mypageTabIcon.png */; };
 		4E1928B41CC230C5009269D4 /* timelineTabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1928B01CC230C5009269D4 /* timelineTabIcon.png */; };
 		4E1928B91CC2313F009269D4 /* notifTabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1928B81CC2313F009269D4 /* notifTabIcon.png */; };
@@ -35,6 +33,8 @@
 		4E1C3F971C9927A400C2D403 /* InitialSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1C3F951C9927A400C2D403 /* InitialSettingViewController.xib */; };
 		4E1C3FA11C99BA0900C2D403 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1C3FA01C99BA0900C2D403 /* Accounts.framework */; };
 		4E1C3FA31C99BA1000C2D403 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1C3FA21C99BA1000C2D403 /* Social.framework */; };
+		4E21034C1CC751AE00FB8302 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E21034B1CC751AE00FB8302 /* splash.png */; };
+		4E21034E1CC7523E00FB8302 /* ios in Resources */ = {isa = PBXBuildFile; fileRef = 4E21034D1CC7523E00FB8302 /* ios */; };
 		4EAFA1491CAA0A19003B489F /* MMDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFA1481CAA0A19003B489F /* MMDatePickerView.m */; };
 		4EAFA14B1CAA0A34003B489F /* MMDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EAFA14A1CAA0A34003B489F /* MMDatePickerView.xib */; };
 		4EAFA14E1CAB58CB003B489F /* MyPageNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFA14D1CAB58CB003B489F /* MyPageNavigationViewController.m */; };
@@ -106,7 +106,6 @@
 		4E050A111C926886005D849C /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		4E19288B1CC20866009269D4 /* selectedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectedIcon.png; sourceTree = "<group>"; };
 		4E1928931CC20C0F009269D4 /* abilityIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abilityIcon.png; sourceTree = "<group>"; };
-		4E1928941CC20C0F009269D4 /* SignUpBackgroundImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SignUpBackgroundImage.jpg; sourceTree = "<group>"; };
 		4E1928951CC20C0F009269D4 /* starbucksIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starbucksIcon.png; sourceTree = "<group>"; };
 		4E1928961CC20C0F009269D4 /* doneButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doneButton.png; sourceTree = "<group>"; };
 		4E1928981CC20C0F009269D4 /* initialSettingBackgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = initialSettingBackgroundImage.png; sourceTree = "<group>"; };
@@ -114,7 +113,6 @@
 		4E1928A21CC21363009269D4 /* negotiationLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = negotiationLabel.png; sourceTree = "<group>"; };
 		4E1928A41CC21512009269D4 /* wantListButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wantListButton.png; sourceTree = "<group>"; };
 		4E1928A81CC219ED009269D4 /* undoneButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = undoneButton.png; sourceTree = "<group>"; };
-		4E1928AC1CC21E05009269D4 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		4E1928AF1CC230C5009269D4 /* mypageTabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mypageTabIcon.png; sourceTree = "<group>"; };
 		4E1928B01CC230C5009269D4 /* timelineTabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelineTabIcon.png; sourceTree = "<group>"; };
 		4E1928B81CC2313F009269D4 /* notifTabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notifTabIcon.png; sourceTree = "<group>"; };
@@ -128,6 +126,8 @@
 		4E1C3F951C9927A400C2D403 /* InitialSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitialSettingViewController.xib; sourceTree = "<group>"; };
 		4E1C3FA01C99BA0900C2D403 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		4E1C3FA21C99BA1000C2D403 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		4E21034B1CC751AE00FB8302 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
+		4E21034D1CC7523E00FB8302 /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ios; sourceTree = "<group>"; };
 		4EAFA1471CAA0A19003B489F /* MMDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDatePickerView.h; sourceTree = "<group>"; };
 		4EAFA1481CAA0A19003B489F /* MMDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDatePickerView.m; sourceTree = "<group>"; };
 		4EAFA14A1CAA0A34003B489F /* MMDatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMDatePickerView.xib; sourceTree = "<group>"; };
@@ -255,7 +255,6 @@
 			children = (
 				4E1928C31CC271A8009269D4 /* lunchIcon.png */,
 				4E1928C21CC271A8009269D4 /* searchTabIcon.png */,
-				4E1928AC1CC21E05009269D4 /* splash.png */,
 				4E19288B1CC20866009269D4 /* selectedIcon.png */,
 				4E1928AF1CC230C5009269D4 /* mypageTabIcon.png */,
 				4E1928BA1CC2318E009269D4 /* cameraTabIcon.png */,
@@ -325,12 +324,13 @@
 		4EE96BF91C67A9810095F5DF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4E21034D1CC7523E00FB8302 /* ios */,
+				4E21034B1CC751AE00FB8302 /* splash.png */,
 				4E19289F1CC20C32009269D4 /* Button */,
 				4E19287A1CC2012D009269D4 /* TabIcon */,
 				4E1928951CC20C0F009269D4 /* starbucksIcon.png */,
 				4E1928981CC20C0F009269D4 /* initialSettingBackgroundImage.png */,
 				4E1928931CC20C0F009269D4 /* abilityIcon.png */,
-				4E1928941CC20C0F009269D4 /* SignUpBackgroundImage.jpg */,
 				4EE96BFE1C67A9A20095F5DF /* shadow.png */,
 				DDEA98211C68C73C00ADF86C /* profileImage.png */,
 				4E1928A21CC21363009269D4 /* negotiationLabel.png */,
@@ -579,7 +579,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E1928AD1CC21E05009269D4 /* splash.png in Resources */,
 				DD95856E1C6084700058B2FE /* LaunchScreen.storyboard in Resources */,
 				4EE96C031C67A9A20095F5DF /* notSettledButton.png in Resources */,
 				4EE96C161C67AABE0095F5DF /* DetailViewController.xib in Resources */,
@@ -601,13 +600,14 @@
 				4E1928901CC20866009269D4 /* selectedIcon.png in Resources */,
 				DD9585691C6084700058B2FE /* Main.storyboard in Resources */,
 				4EE96C021C67A9A20095F5DF /* friendButton.png in Resources */,
-				4E19289A1CC20C0F009269D4 /* SignUpBackgroundImage.jpg in Resources */,
 				4E19289B1CC20C0F009269D4 /* starbucksIcon.png in Resources */,
 				4E1928A91CC219ED009269D4 /* undoneButton.png in Resources */,
 				4E1928BE1CC24A62009269D4 /* wantedButton.png in Resources */,
+				4E21034C1CC751AE00FB8302 /* splash.png in Resources */,
 				4E1928A11CC21253009269D4 /* soldOutLabel.png in Resources */,
 				DD9585941C6084AA0058B2FE /* MyPage.storyboard in Resources */,
 				4EE96C111C67AA3F0095F5DF /* MMCollectionViewCell.xib in Resources */,
+				4E21034E1CC7523E00FB8302 /* ios in Resources */,
 				4E1928C51CC271A8009269D4 /* lunchIcon.png in Resources */,
 				4EE96C041C67A9A20095F5DF /* optionButton.png in Resources */,
 				4E1928BB1CC2318E009269D4 /* cameraTabIcon.png in Resources */,
@@ -854,8 +854,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Satsuki Hashiba (4XG2XH448D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Satsuki Hashiba (4XG2XH448D)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MonoMosh",
@@ -874,8 +874,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Satsuki Hashiba (4XG2XH448D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Satsuki Hashiba (4XG2XH448D)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MonoMosh",

@@ -88,7 +88,7 @@
 -(void)cancelPost{
     UIAlertController *alert=   [UIAlertController
                                  alertControllerWithTitle:@"Warning!"
-                                 message:@"編集内容を破棄します。よろしいですか?"
+                                 message:@"Are you sure to delete changes?"
                                  preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *okButton = [UIAlertAction
@@ -142,7 +142,7 @@
     if([nameTextField.text isEqualToString:@""] || [detailTextView.text isEqualToString:@""]){
         UIAlertController *alert=   [UIAlertController
                                      alertControllerWithTitle:@"Miss!"
-                                     message:@"空欄があります"
+                                     message:@"You have blanks"
                                      preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *okButton = [UIAlertAction
@@ -186,7 +186,7 @@
             
             UIAlertController *alert=   [UIAlertController
                                          alertControllerWithTitle:@"Completed!"
-                                         message:@"投稿しました"
+                                         message:@"Succeess to post"
                                          preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction *okButton = [UIAlertAction
@@ -260,7 +260,7 @@
                     }
                     UIAlertController *alert=   [UIAlertController
                                                  alertControllerWithTitle:@"Completed!"
-                                                 message:@"変更を保存しました"
+                                                 message:@"Save!"
                                                  preferredStyle:UIAlertControllerStyleAlert];
                     
                     UIAlertAction *okButton = [UIAlertAction
